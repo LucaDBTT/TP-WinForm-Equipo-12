@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GestorArticulos
 {
-    public partial class Form1 : Form
+    public partial class frmCatalogo : Form
     {
-        public Form1()
+        public frmCatalogo()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
