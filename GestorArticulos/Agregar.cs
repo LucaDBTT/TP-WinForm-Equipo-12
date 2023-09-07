@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace GestorArticulos
 {
-    public partial class frmCatalogo : Form
+    public partial class frmAgregar : Form
     {
-        public frmCatalogo()
+        public frmAgregar()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            frmAgregar agregar = new frmAgregar();
-            agregar.ShowDialog(); 
+            this.Close(); 
         }
     }
 }

@@ -29,6 +29,7 @@ namespace GestorArticulos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.asd = new System.Windows.Forms.ColorDialog();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@ namespace GestorArticulos
             this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnELiminar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +70,7 @@ namespace GestorArticulos
             this.txtboxBuscar.Name = "txtboxBuscar";
             this.txtboxBuscar.Size = new System.Drawing.Size(407, 20);
             this.txtboxBuscar.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtboxBuscar, "Busque un articulo...");
             // 
             // btnAgregar
             // 
@@ -77,6 +80,7 @@ namespace GestorArticulos
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblBuscar
             // 
@@ -148,6 +152,7 @@ namespace GestorArticulos
         private System.Windows.Forms.PictureBox pboxImagen;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnELiminar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
