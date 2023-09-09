@@ -1,13 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33801.447
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{F55D2398-5F1B-481F-A964-90950DEA8B14}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorArticulos", "GestorArticulos\GestorArticulos.csproj", "{8646DA7F-82A0-4D54-A5AC-8D10EB0FBAFF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F55D2398-5F1B-481F-A964-90950DEA8B14} = {F55D2398-5F1B-481F-A964-90950DEA8B14}
+		{FC5B38DD-38DC-4432-B9F1-E0634AA9986B} = {FC5B38DD-38DC-4432-B9F1-E0634AA9986B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{FC5B38DD-38DC-4432-B9F1-E0634AA9986B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F55D2398-5F1B-481F-A964-90950DEA8B14} = {F55D2398-5F1B-481F-A964-90950DEA8B14}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,14 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace GestorArticulos
+namespace Negocio
 {
-    class AccesoDatos
+    public class AccesoDatos
     {
+
         private SqlConnection Conexion;
         private SqlCommand Comando;
         private SqlDataReader Lector;
 
+        public SqlDataReader lector
+        {
+            get { return Lector; }
+        }
         public AccesoDatos()
         {
             Conexion = new SqlConnection("");
