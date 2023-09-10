@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,31 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        public List <Articulo> Listar()
+        public List <Articulo> ListarArticulos()
         {
               List<Articulo> Lista = new List<Articulo>();
-            AccesoDatos Datos = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                Datos.SetearQuery("");
-                Datos.EjecutarLectura();
-                while (Datos.lector.Read())
+                datos.SetearQuery("select Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio, A.IdCategoria, A.IdMarca, A.Id, I.ImagenUrl from ARTICULOS A, CATEGORIAS C, MARCAS M, Imagenes I where C.Id = A.IdCategoria and M.Id = A.IdMarca and A.Id = I.IdArticulo");
+                datos.EjecutarLectura();
+                while (datos.lector.Read())
                 {
-                    
+                    Articulo aux = new Articulo();
+
+                    aux.IdArticulo = (int)datos.lector["Id"];
+                    aux.CodigoArticulo = datos.lector.GetString(0);
+                    aux.Nombre = (string)datos.lector["Nombre"];
+                    aux.Descripcion = (string)datos.lector["Descripcion"];
+                    aux.Precio = (decimal)datos.lector["Precio"];
+
+                    if (!(datos.lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl = (string)datos.lector["ImagenUrl"];
+                   
+                    //falta setear marca y categoria
+                   
+
+                    Lista.Add(aux);
                 }
                 return Lista;
             }
@@ -30,7 +45,7 @@ namespace Negocio
             }
             finally
             {
-                Datos.CerrarConexion();
+                datos.CerrarConexion();
             }
         }
 
