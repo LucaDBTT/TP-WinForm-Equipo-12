@@ -31,9 +31,13 @@ namespace Negocio
 
                     if (!(datos.lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.lector["ImagenUrl"];
-                   
-                    //falta setear marca y categoria
-                   
+
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)datos.lector["Categoria"];
+
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.lector["Marca"];
+
 
                     Lista.Add(aux);
                 }

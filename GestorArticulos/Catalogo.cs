@@ -36,6 +36,7 @@ namespace GestorArticulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.ListarArticulos();
             dgvArticulo.DataSource = ListaArticulos;
+            dgvArticulo.Columns["ImagenUrl"].Visible = false;
             cargarImagen(ListaArticulos[0].ImagenUrl);
         }
 
