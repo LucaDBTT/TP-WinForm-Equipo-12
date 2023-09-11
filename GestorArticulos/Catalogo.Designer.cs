@@ -134,6 +134,7 @@ namespace GestorArticulos
             this.Name = "frmCatalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmCatalogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).EndInit();
             this.ResumeLayout(false);

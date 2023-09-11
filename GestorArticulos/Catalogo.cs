@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,12 @@ namespace GestorArticulos
         {
             frmAgregar agregar = new frmAgregar();
             agregar.ShowDialog(); 
+        }
+
+        private void frmCatalogo_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            dgvArticulo.DataSource = negocio.ListarArticulos();
         }
     }
 }
