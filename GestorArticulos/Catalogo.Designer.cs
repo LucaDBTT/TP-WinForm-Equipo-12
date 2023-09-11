@@ -54,6 +54,7 @@ namespace GestorArticulos
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulo.Size = new System.Drawing.Size(456, 238);
             this.dgvArticulo.TabIndex = 0;
+            this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
             // 
             // lblTitulo
             // 
