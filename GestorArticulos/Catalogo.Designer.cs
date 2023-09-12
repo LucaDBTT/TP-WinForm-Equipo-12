@@ -118,6 +118,7 @@ namespace GestorArticulos
             this.btnELiminar.TabIndex = 7;
             this.btnELiminar.Text = "Eliminar";
             this.btnELiminar.UseVisualStyleBackColor = true;
+            this.btnELiminar.Click += new System.EventHandler(this.btnELiminar_Click);
             // 
             // frmCatalogo
             // 

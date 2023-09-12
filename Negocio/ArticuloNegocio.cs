@@ -87,7 +87,27 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
-    
+        public void bajaFisica(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearQuery("delete from ARTICULOS where Id = @id");
+                datos.setearParametros("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
 
     }
 }

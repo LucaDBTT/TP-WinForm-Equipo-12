@@ -59,5 +59,9 @@ namespace GestorArticulos
             }
         }
 
+        private void btnELiminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
