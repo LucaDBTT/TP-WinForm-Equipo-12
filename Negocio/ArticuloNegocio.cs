@@ -87,23 +87,7 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
-        public void Eliminar(Articulo nuevo)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.SetearQuery("");
-                datos.EjecutarLectura();
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-        }
+    
 
     }
 }
