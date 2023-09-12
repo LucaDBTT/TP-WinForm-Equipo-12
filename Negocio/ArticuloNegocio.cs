@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Dominio;
 
 
@@ -17,7 +18,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearQuery("select Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio, A.IdCategoria, A.IdMarca, A.Id, I.ImagenUrl from ARTICULOS A, CATEGORIAS C, MARCAS M, Imagenes I where C.Id = A.IdCategoria and M.Id = A.IdMarca and A.Id = I.IdArticulo");
+                datos.SetearQuery("select Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio, A.IdCategoria, A.IdMarca, A.Id, I.ImagenUrl from ARTICULOS A, CATEGORIAS C, MARCAS M, Imagenes I where C.Id = A.IdCategoria and M.Id = A.IdMarca and A.Id = I.Id");
                 datos.EjecutarLectura();
                 while (datos.lector.Read())
                 {
@@ -90,12 +91,18 @@ namespace Negocio
         public void bajaFisica(int id)
         {
             AccesoDatos datos = new AccesoDatos();
+             DialogResult dialogo = MessageBox.Show("Esta seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             try
             {
-                datos.SetearQuery("delete from ARTICULOS where Id = @id");
-                datos.setearParametros("@id", id);
-                datos.ejecutarAccion();
+                if (dialogo == DialogResult.Yes)
+                {
+                    datos.SetearQuery("delete from ARTICULOS where Id = @id");
+                    datos.setearParametros("@id", id);
+                    datos.ejecutarAccion();
+                    MessageBox.Show("Articulo eliminado con exito");
+                    
+                }
             }
             catch (Exception ex)
             {

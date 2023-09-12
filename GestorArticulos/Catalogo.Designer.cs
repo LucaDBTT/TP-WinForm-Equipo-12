@@ -36,10 +36,10 @@ namespace GestorArticulos
             this.txtboxBuscar = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
-            this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnELiminar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pboxImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.SuspendLayout();
@@ -92,15 +92,6 @@ namespace GestorArticulos
             this.lblBuscar.TabIndex = 4;
             this.lblBuscar.Text = "Buscar: ";
             // 
-            // pboxImagen
-            // 
-            this.pboxImagen.Location = new System.Drawing.Point(614, 144);
-            this.pboxImagen.Name = "pboxImagen";
-            this.pboxImagen.Size = new System.Drawing.Size(310, 277);
-            this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxImagen.TabIndex = 5;
-            this.pboxImagen.TabStop = false;
-            // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(321, 388);
@@ -120,10 +111,20 @@ namespace GestorArticulos
             this.btnELiminar.UseVisualStyleBackColor = true;
             this.btnELiminar.Click += new System.EventHandler(this.btnELiminar_Click);
             // 
+            // pboxImagen
+            // 
+            this.pboxImagen.Location = new System.Drawing.Point(614, 144);
+            this.pboxImagen.Name = "pboxImagen";
+            this.pboxImagen.Size = new System.Drawing.Size(310, 277);
+            this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxImagen.TabIndex = 5;
+            this.pboxImagen.TabStop = false;
+            // 
             // frmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(972, 543);
             this.Controls.Add(this.btnELiminar);
             this.Controls.Add(this.btnModificar);
@@ -135,7 +136,7 @@ namespace GestorArticulos
             this.Controls.Add(this.dgvArticulo);
             this.Name = "frmCatalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Catalogo";
             this.Load += new System.EventHandler(this.frmCatalogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).EndInit();
