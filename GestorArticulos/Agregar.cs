@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Dominio;
 
 namespace GestorArticulos
 {
@@ -43,6 +44,29 @@ namespace GestorArticulos
             finally
             {
 
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Articulo articulo = new Articulo();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                articulo.CodigoArticulo = txtbCodigo.Text;
+                articulo.Nombre = txtbNombre.Text;
+                articulo.Descripcion = txtbDescripcion.Text;
+                articulo.Precio = decimal.Parse(txtbPrecio.Text);
+                articulo.Marca = (Marca)cboxMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
+                articuloNegocio.Agregar(articulo);
+                MessageBox.Show("Agregado correctamente!");
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
             }
         }
     }

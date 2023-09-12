@@ -70,6 +70,7 @@ namespace GestorArticulos
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtbCodigo
             // 
@@ -229,7 +230,7 @@ namespace GestorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 613);
+            this.ClientSize = new System.Drawing.Size(683, 521);
             this.Controls.Add(this.PanelAgregar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pboxImagen);
