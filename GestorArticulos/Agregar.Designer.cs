@@ -89,6 +89,7 @@ namespace GestorArticulos
             // 
             // cboxMarca
             // 
+            this.cboxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxMarca.FormattingEnabled = true;
             this.cboxMarca.Location = new System.Drawing.Point(117, 245);
             this.cboxMarca.Name = "cboxMarca";
@@ -168,6 +169,7 @@ namespace GestorArticulos
             // 
             // cboxCategoria
             // 
+            this.cboxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCategoria.FormattingEnabled = true;
             this.cboxCategoria.Location = new System.Drawing.Point(117, 297);
             this.cboxCategoria.Name = "cboxCategoria";
@@ -234,6 +236,7 @@ namespace GestorArticulos
             this.Controls.Add(this.btnAgregar);
             this.Name = "frmAgregar";
             this.Text = "Agregar";
+            this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).EndInit();
             this.PanelAgregar.ResumeLayout(false);
             this.PanelAgregar.PerformLayout();

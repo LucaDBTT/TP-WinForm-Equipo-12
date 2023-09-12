@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace GestorArticulos
 {
@@ -20,6 +21,29 @@ namespace GestorArticulos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close(); 
+        }
+
+        private void frmAgregar_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marca = new MarcaNegocio();
+            CategoriaNegocio categoria = new CategoriaNegocio(); 
+
+            try
+            {
+                cboxCategoria.DataSource = categoria.ListarCategorias();
+                cboxMarca.DataSource = marca.ListarMarcas(); 
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+            }
         }
     }
 }
