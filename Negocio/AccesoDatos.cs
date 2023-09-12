@@ -23,6 +23,10 @@ namespace Negocio
             Conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
             Comando = new SqlCommand();
         }
+        public void setearParametros(string nombre, object valor)
+        {
+                Comando.Parameters.AddWithValue(nombre, valor);
+        }
 
         public void SetearQuery(string Query)
         {
