@@ -48,7 +48,7 @@ namespace GestorArticulos
             // 
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulo.Location = new System.Drawing.Point(74, 144);
+            this.dgvArticulo.Location = new System.Drawing.Point(133, 144);
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -67,7 +67,7 @@ namespace GestorArticulos
             // 
             // txtboxBuscar
             // 
-            this.txtboxBuscar.Location = new System.Drawing.Point(123, 100);
+            this.txtboxBuscar.Location = new System.Drawing.Point(182, 118);
             this.txtboxBuscar.Name = "txtboxBuscar";
             this.txtboxBuscar.Size = new System.Drawing.Size(407, 20);
             this.txtboxBuscar.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace GestorArticulos
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(58, 411);
+            this.btnAgregar.Location = new System.Drawing.Point(196, 388);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace GestorArticulos
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(71, 103);
+            this.lblBuscar.Location = new System.Drawing.Point(130, 118);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(46, 13);
             this.lblBuscar.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace GestorArticulos
             // 
             // pboxImagen
             // 
-            this.pboxImagen.Location = new System.Drawing.Point(554, 144);
+            this.pboxImagen.Location = new System.Drawing.Point(614, 144);
             this.pboxImagen.Name = "pboxImagen";
             this.pboxImagen.Size = new System.Drawing.Size(310, 277);
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@ namespace GestorArticulos
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(227, 411);
+            this.btnModificar.Location = new System.Drawing.Point(321, 388);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace GestorArticulos
             // 
             // btnELiminar
             // 
-            this.btnELiminar.Location = new System.Drawing.Point(396, 411);
+            this.btnELiminar.Location = new System.Drawing.Point(452, 388);
             this.btnELiminar.Name = "btnELiminar";
             this.btnELiminar.Size = new System.Drawing.Size(75, 23);
             this.btnELiminar.TabIndex = 7;
@@ -124,7 +124,7 @@ namespace GestorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 511);
+            this.ClientSize = new System.Drawing.Size(972, 543);
             this.Controls.Add(this.btnELiminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pboxImagen);
