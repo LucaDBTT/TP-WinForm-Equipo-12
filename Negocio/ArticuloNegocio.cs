@@ -64,12 +64,18 @@ namespace Negocio
         public void Agregar(Articulo nuevo)
         {
             AccesoDatos Datos = new AccesoDatos();
+            ImagenNegocio negocioImagen = new ImagenNegocio();
+            Imagen imagen = new Imagen();
             try
             { 
-               // Datos.SetearQuery("insert into ARTICULOS (Codigo, Nombre, Descripcion,Precio) VALUES ("+nuevo.CodigoArticulo+",'"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', "+nuevo.Precio+")\r\ninsert into MARCAS (Descripcion) VALUES ('"+nuevo.Marca.Descripcion+"')\r\ninsert into CATEGORIAS (Descripcion) VALUES ('"+nuevo.Categoria.Descripcion+"')\r\ninsert into IMAGENES (IdArticulo , ImagenUrl) VALUES("+nuevo.ImagenUrl.IdArticulo+",'"+nuevo.ImagenUrl.Descripcion+"')");
-                //Datos.EjecutarLectura();
+                Datos.SetearQuery("insert into ARTICULOS (Codigo, Nombre, Descripcion,IdMarca,IdCategoria,Precio) VALUES ('"+nuevo.CodigoArticulo+"','"+nuevo.Nombre+"', '"+nuevo.Descripcion+"',@IdMarca,@IdCategoria, "+nuevo.Precio+")");
+                Datos.setearParametros("@IdMarca", nuevo.Marca.IdMarca);
+                Datos.setearParametros("@IdCategoria", nuevo.Categoria.IdCategoria);
                 Datos.ejecutarAccion();
-                
+                imagen=negocioImagen.getIdImagen();
+                Datos.SetearQuery("insert into IMAGENES(IdArticulo, ImagenUrl) values(@IdArticulo , '"+nuevo.ImagenUrl.Descripcion+"')");
+                Datos.setearParametros("@IdArticulo", imagen.IdArticulo);
+                Datos.ejecutarAccion();
             }
             catch (Exception Ex)
             {
@@ -80,6 +86,7 @@ namespace Negocio
                 Datos.CerrarConexion();
             }
         }
+
         public void Modificar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

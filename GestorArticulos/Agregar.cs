@@ -61,7 +61,9 @@ namespace GestorArticulos
                 articulo.Precio = decimal.Parse(txtbPrecio.Text);
                 articulo.Marca = (Marca)cboxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
-                //articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
+                articulo.ImagenUrl = new Imagen();
+                articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
+
                 articuloNegocio.Agregar(articulo);
                 
                 MessageBox.Show("Agregado correctamente!");

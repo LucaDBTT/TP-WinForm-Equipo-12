@@ -15,7 +15,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearQuery("select IdArticulo, ImagenUrl from IMAGENES");
+                datos.SetearQuery("select  IdArticulo, ImagenUrl from IMAGENES");
                 datos.EjecutarLectura();
                 while (datos.lector.Read())
                 {
@@ -38,6 +38,33 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+
+            public Imagen getIdImagen()
+            {
+                AccesoDatos datos1 = new AccesoDatos();
+                Imagen aux = new Imagen();
+                
+                try
+                {
+                    datos1.SetearQuery("SELECT TOP 1 Id FROM ARTICULOS ORDER BY Id DESC");
+                    datos1.EjecutarLectura();
+                    while (datos1.lector.Read())
+                    {
+
+                        aux.IdArticulo = (int)datos1.lector["IdArticulo"];
+
+                    }
+                    return aux;
+                }
+                catch (Exception Ex)
+                {
+                    throw Ex;
+                }
+                finally
+                {
+                    datos1.CerrarConexion();
+                }
+            }
     }
 }
 
