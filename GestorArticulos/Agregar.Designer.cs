@@ -167,6 +167,7 @@ namespace GestorArticulos
             this.txtbUrlImagen.Size = new System.Drawing.Size(111, 20);
             this.txtbUrlImagen.TabIndex = 12;
             this.toolTip1.SetToolTip(this.txtbUrlImagen, "Ingrese la url...");
+           
             // 
             // cboxCategoria
             // 

@@ -32,6 +32,8 @@ namespace Negocio
                     aux.Marca = new Marca();
                     aux.Marca.Descripcion = (string)datos.lector["MarcaDescripcion"];
                     aux.Categoria = new Categoria();
+                    aux.ImagenUrl = new Imagen();
+                    
                     if (datos.lector["CategoriaDescripcion"] is DBNull)
                     {
                         aux.Categoria = null;
@@ -42,8 +44,8 @@ namespace Negocio
                         aux.Categoria.Descripcion = (string)datos.lector["CategoriaDescripcion"];
                     }
 
-                    if (!(datos.lector["ImagenUrl"] is DBNull))
-                        aux.ImagenUrl = (string)datos.lector["ImagenUrl"];
+                  if (!(datos.lector["ImagenUrl"] is DBNull))
+                     aux.ImagenUrl.Descripcion = (string)datos.lector["ImagenUrl"];
 
                     Lista.Add(aux);
                 }
@@ -63,9 +65,11 @@ namespace Negocio
         {
             AccesoDatos Datos = new AccesoDatos();
             try
-            {
-                Datos.SetearQuery("");
-                Datos.EjecutarLectura();
+            { 
+               // Datos.SetearQuery("insert into ARTICULOS (Codigo, Nombre, Descripcion,Precio) VALUES ("+nuevo.CodigoArticulo+",'"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', "+nuevo.Precio+")\r\ninsert into MARCAS (Descripcion) VALUES ('"+nuevo.Marca.Descripcion+"')\r\ninsert into CATEGORIAS (Descripcion) VALUES ('"+nuevo.Categoria.Descripcion+"')\r\ninsert into IMAGENES (IdArticulo , ImagenUrl) VALUES("+nuevo.ImagenUrl.IdArticulo+",'"+nuevo.ImagenUrl.Descripcion+"')");
+                //Datos.EjecutarLectura();
+                Datos.ejecutarAccion();
+                
             }
             catch (Exception Ex)
             {

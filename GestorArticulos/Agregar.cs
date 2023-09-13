@@ -49,7 +49,9 @@ namespace GestorArticulos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //Imagen imagen = new Imagen();
             Articulo articulo = new Articulo();
+           // ImagenNegocio imagenNegocio = new ImagenNegocio();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
@@ -59,7 +61,9 @@ namespace GestorArticulos
                 articulo.Precio = decimal.Parse(txtbPrecio.Text);
                 articulo.Marca = (Marca)cboxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
+                //articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
                 articuloNegocio.Agregar(articulo);
+                
                 MessageBox.Show("Agregado correctamente!");
                 Close();
             }

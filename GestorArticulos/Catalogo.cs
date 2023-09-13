@@ -33,18 +33,30 @@ namespace GestorArticulos
 
         private void frmCatalogo_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            this.BackgroundImage = Properties.Resources.presentacionWF1;
-            ListaArticulos = negocio.ListarArticulos();
-            dgvArticulo.DataSource = ListaArticulos;
-            dgvArticulo.Columns["ImagenUrl"].Visible = false;
-            cargarImagen(ListaArticulos[0].ImagenUrl);
+            Cargar();
         }
+        private void Cargar ()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                this.BackgroundImage = Properties.Resources.presentacionWF1;
+                ListaArticulos = negocio.ListarArticulos();
+                dgvArticulo.DataSource = ListaArticulos;
+                dgvArticulo.Columns["ImagenUrl"].Visible = false;
+                cargarImagen(ListaArticulos[0].ImagenUrl.Descripcion);
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.ToString());
+            }
+        }
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
+            string url = seleccionado.ImagenUrl.Descripcion;
+            cargarImagen(url);
         }
 
         private void cargarImagen(string imagen)
@@ -65,9 +77,7 @@ namespace GestorArticulos
             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             ArticuloNegocio negocio = new ArticuloNegocio();
             negocio.bajaFisica(seleccionado.IdArticulo);
-            dgvArticulo.Refresh();
-            ListaArticulos = negocio.ListarArticulos();
-            dgvArticulo.DataSource = ListaArticulos;
+            Cargar();
         }
     }
 }
