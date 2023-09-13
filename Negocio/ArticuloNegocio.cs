@@ -18,27 +18,32 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearQuery("select Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio, A.IdCategoria, A.IdMarca, A.Id, I.ImagenUrl from ARTICULOS A, CATEGORIAS C, MARCAS M, Imagenes I where C.Id = A.IdCategoria and M.Id = A.IdMarca and A.Id = I.Id");
+                datos.SetearQuery("select a.Id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as MarcaDescripcion, c.Descripcion as CategoriaDescripcion, im.ImagenUrl from ARTICULOS a INNER join IMAGENES im ON a.Id= im.IdArticulo INNER JOIN MARCAS m ON a.IdMarca = m.Id LEFT JOIN CATEGORIAS c ON a.IdCategoria = c.Id");
                 datos.EjecutarLectura();
                 while (datos.lector.Read())
                 {
                     Articulo aux = new Articulo();
 
                     aux.IdArticulo = (int)datos.lector["Id"];
-                    aux.CodigoArticulo = datos.lector.GetString(0);
+                    aux.CodigoArticulo = (string)datos.lector["Codigo"];
                     aux.Nombre = (string)datos.lector["Nombre"];
                     aux.Descripcion = (string)datos.lector["Descripcion"];
                     aux.Precio = (decimal)datos.lector["Precio"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.lector["MarcaDescripcion"];
+                    aux.Categoria = new Categoria();
+                    if (datos.lector["CategoriaDescripcion"] is DBNull)
+                    {
+                        aux.Categoria = null;
+                    }
+                    else
+                    {
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.Descripcion = (string)datos.lector["CategoriaDescripcion"];
+                    }
 
                     if (!(datos.lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.lector["ImagenUrl"];
-
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.lector["Categoria"];
-
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.lector["Marca"];
-
 
                     Lista.Add(aux);
                 }
