@@ -55,10 +55,8 @@ namespace GestorArticulos
        
       
         private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            //Imagen imagen = new Imagen();
+        {      
             Articulo articulo = new Articulo();
-           // ImagenNegocio imagenNegocio = new ImagenNegocio();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
@@ -83,6 +81,29 @@ namespace GestorArticulos
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+
+        private void txtbUrlImagen_Leave(object sender, EventArgs e)
+        {
+            string url = txtbUrlImagen.Text.Trim();
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                try
+                {
+                    pboxImagen.Load(url);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                pboxImagen.Load("https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg");
+            }
+
         }
     }
 }

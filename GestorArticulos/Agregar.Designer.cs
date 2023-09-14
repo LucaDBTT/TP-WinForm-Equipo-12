@@ -85,6 +85,7 @@ namespace GestorArticulos
             this.pboxImagen.Location = new System.Drawing.Point(343, 40);
             this.pboxImagen.Name = "pboxImagen";
             this.pboxImagen.Size = new System.Drawing.Size(328, 359);
+            this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxImagen.TabIndex = 3;
             this.pboxImagen.TabStop = false;
             // 
@@ -167,7 +168,7 @@ namespace GestorArticulos
             this.txtbUrlImagen.Size = new System.Drawing.Size(111, 20);
             this.txtbUrlImagen.TabIndex = 12;
             this.toolTip1.SetToolTip(this.txtbUrlImagen, "Ingrese la url...");
-           
+            this.txtbUrlImagen.Leave += new System.EventHandler(this.txtbUrlImagen_Leave);
             // 
             // cboxCategoria
             // 

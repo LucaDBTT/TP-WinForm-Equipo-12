@@ -38,13 +38,13 @@ namespace GestorArticulos
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnELiminar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblFiltroEspecifico = new System.Windows.Forms.Label();
-            this.cboxCampo = new System.Windows.Forms.ComboBox();
-            this.cboxCriterio = new System.Windows.Forms.ComboBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cboxCriterio = new System.Windows.Forms.ComboBox();
+            this.cboxCampo = new System.Windows.Forms.ComboBox();
+            this.lblFiltroEspecifico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.panel1.SuspendLayout();
@@ -117,6 +117,14 @@ namespace GestorArticulos
             this.btnELiminar.UseVisualStyleBackColor = true;
             this.btnELiminar.Click += new System.EventHandler(this.btnELiminar_Click);
             // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(24, 252);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(121, 20);
+            this.txtFiltro.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtFiltro, "Busque un articulo...");
+            // 
             // pboxImagen
             // 
             this.pboxImagen.Location = new System.Drawing.Point(784, 63);
@@ -125,14 +133,6 @@ namespace GestorArticulos
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxImagen.TabIndex = 5;
             this.pboxImagen.TabStop = false;
-            // 
-            // txtFiltro
-            // 
-            this.txtFiltro.Location = new System.Drawing.Point(24, 252);
-            this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(121, 20);
-            this.txtFiltro.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.txtFiltro, "Busque un articulo...");
             // 
             // panel1
             // 
@@ -147,22 +147,14 @@ namespace GestorArticulos
             this.panel1.Size = new System.Drawing.Size(164, 526);
             this.panel1.TabIndex = 9;
             // 
-            // lblFiltroEspecifico
+            // btnFiltrar
             // 
-            this.lblFiltroEspecifico.AutoSize = true;
-            this.lblFiltroEspecifico.Location = new System.Drawing.Point(61, 26);
-            this.lblFiltroEspecifico.Name = "lblFiltroEspecifico";
-            this.lblFiltroEspecifico.Size = new System.Drawing.Size(35, 13);
-            this.lblFiltroEspecifico.TabIndex = 5;
-            this.lblFiltroEspecifico.Text = "Filtrar ";
-            // 
-            // cboxCampo
-            // 
-            this.cboxCampo.FormattingEnabled = true;
-            this.cboxCampo.Location = new System.Drawing.Point(24, 86);
-            this.cboxCampo.Name = "cboxCampo";
-            this.cboxCampo.Size = new System.Drawing.Size(121, 21);
-            this.cboxCampo.TabIndex = 6;
+            this.btnFiltrar.Location = new System.Drawing.Point(49, 327);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 10;
+            this.btnFiltrar.Text = "Buscar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
             // cboxCriterio
             // 
@@ -172,14 +164,22 @@ namespace GestorArticulos
             this.cboxCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboxCriterio.TabIndex = 7;
             // 
-            // btnFiltrar
+            // cboxCampo
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(49, 327);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 10;
-            this.btnFiltrar.Text = "Buscar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.cboxCampo.FormattingEnabled = true;
+            this.cboxCampo.Location = new System.Drawing.Point(24, 86);
+            this.cboxCampo.Name = "cboxCampo";
+            this.cboxCampo.Size = new System.Drawing.Size(121, 21);
+            this.cboxCampo.TabIndex = 6;
+            // 
+            // lblFiltroEspecifico
+            // 
+            this.lblFiltroEspecifico.AutoSize = true;
+            this.lblFiltroEspecifico.Location = new System.Drawing.Point(61, 26);
+            this.lblFiltroEspecifico.Name = "lblFiltroEspecifico";
+            this.lblFiltroEspecifico.Size = new System.Drawing.Size(35, 13);
+            this.lblFiltroEspecifico.TabIndex = 5;
+            this.lblFiltroEspecifico.Text = "Filtrar ";
             // 
             // frmCatalogo
             // 

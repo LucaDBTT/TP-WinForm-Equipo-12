@@ -80,5 +80,7 @@ namespace GestorArticulos
             negocio.bajaFisica(seleccionado.IdArticulo);
             Cargar();
         }
+
+       
     }
 }
