@@ -100,11 +100,14 @@ namespace GestorArticulos
             }
             else
             {
-                listaFiltrada = ListaArticulos.FindAll(k => k.Nombre.ToLower().Contains(txtboxBuscar.Text.ToLower()) 
-                || k.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower())||
-                k.CodigoArticulo.ToLower().Contains(txtboxBuscar.Text.ToLower())
-                || k.Marca.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower()) || 
-                k.Categoria.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower()));
+                listaFiltrada = ListaArticulos.FindAll(k =>
+                {
+                    return (k.Nombre != null && k.Nombre.ToLower().Contains(txtboxBuscar.Text.ToLower())) ||
+                           (k.Descripcion != null && k.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower())) ||
+                           (k.CodigoArticulo != null && k.CodigoArticulo.ToLower().Contains(txtboxBuscar.Text.ToLower())) ||
+                           (k.Marca != null && k.Marca.Descripcion != null && k.Marca.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower())) ||
+                           (k.Categoria != null && k.Categoria.Descripcion != null && k.Categoria.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower()));
+                });
             }
             dgvArticulo.DataSource = listaFiltrada;
             ocultarImagen();
