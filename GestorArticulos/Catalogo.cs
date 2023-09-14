@@ -44,7 +44,7 @@ namespace GestorArticulos
                 this.BackgroundImage = Properties.Resources.presentacionWF1;
                 ListaArticulos = negocio.ListarArticulos();
                 dgvArticulo.DataSource = ListaArticulos;
-                dgvArticulo.Columns["ImagenUrl"].Visible = false;
+                ocultarImagen();
                 cargarImagen(ListaArticulos[0].ImagenUrl.Descripcion);
             }
             catch (Exception ex)
@@ -52,6 +52,11 @@ namespace GestorArticulos
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+        public void ocultarImagen()
+        {
+            dgvArticulo.Columns["ImagenUrl"].Visible = false;
+            dgvArticulo.Columns["IdArticulo"].Visible = false;
         }
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
@@ -81,6 +86,24 @@ namespace GestorArticulos
             Cargar();
         }
 
-       
+        private void txtboxBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+
+            if (txtboxBuscar.Text == "")
+            {
+                listaFiltrada = ListaArticulos;
+            }
+            else
+            {
+                listaFiltrada = ListaArticulos.FindAll(k => k.Nombre.ToLower().Contains(txtboxBuscar.Text.ToLower()) 
+                || k.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower())||
+                k.CodigoArticulo.ToLower().Contains(txtboxBuscar.Text.ToLower())
+                || k.Marca.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower()) || 
+                k.Categoria.Descripcion.ToLower().Contains(txtboxBuscar.Text.ToLower()));
+            }
+            dgvArticulo.DataSource = listaFiltrada;
+            ocultarImagen();
+        }
     }
 }

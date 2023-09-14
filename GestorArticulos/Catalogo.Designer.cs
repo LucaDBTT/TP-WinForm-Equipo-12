@@ -78,6 +78,7 @@ namespace GestorArticulos
             this.txtboxBuscar.Size = new System.Drawing.Size(362, 20);
             this.txtboxBuscar.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtboxBuscar, "Busque un articulo...");
+            this.txtboxBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxBuscar_KeyPress);
             // 
             // btnAgregar
             // 
