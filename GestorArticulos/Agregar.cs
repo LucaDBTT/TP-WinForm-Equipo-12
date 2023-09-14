@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Negocio;
 using Dominio;
 
+
 namespace GestorArticulos
 {
     public partial class frmAgregar : Form
@@ -23,17 +24,16 @@ namespace GestorArticulos
         {
             this.Close(); 
         }
-
-        private void frmAgregar_Load(object sender, EventArgs e)
+        private void cargar()
         {
             MarcaNegocio marca = new MarcaNegocio();
-            CategoriaNegocio categoria = new CategoriaNegocio(); 
+            CategoriaNegocio categoria = new CategoriaNegocio();
 
             try
             {
                 cboxCategoria.DataSource = categoria.ListarCategorias();
-                cboxMarca.DataSource = marca.ListarMarcas(); 
-                
+                cboxMarca.DataSource = marca.ListarMarcas();
+
 
             }
             catch (Exception ex)
@@ -47,6 +47,13 @@ namespace GestorArticulos
             }
         }
 
+
+        private void frmAgregar_Load(object sender, EventArgs e)
+        {
+            cargar();
+        }
+       
+      
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Imagen imagen = new Imagen();
@@ -68,6 +75,8 @@ namespace GestorArticulos
                 
                 MessageBox.Show("Agregado correctamente!");
                 Close();
+                
+                
             }
             catch (Exception ex)
             {

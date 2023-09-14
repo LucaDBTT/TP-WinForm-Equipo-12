@@ -39,32 +39,34 @@ namespace Negocio
             }
         }
 
-            public Imagen getIdImagen()
+        public Imagen getImagen()
+        {
+            AccesoDatos datos1 = new AccesoDatos();
+            Imagen aux = new Imagen();
+
+            try
             {
-                AccesoDatos datos1 = new AccesoDatos();
-                Imagen aux = new Imagen();
-                
-                try
+                // Cambia la consulta para obtener el IdArticulo del artículo recién insertado
+                datos1.SetearQuery("SELECT IDENT_CURRENT('ARTICULOS') AS IdArticulo");
+                datos1.EjecutarLectura();
+                if (datos1.lector.Read())
                 {
-                    datos1.SetearQuery("SELECT TOP 1 Id FROM ARTICULOS ORDER BY Id DESC");
-                    datos1.EjecutarLectura();
-                    while (datos1.lector.Read())
-                    {
+                    aux.IdArticulo = Convert.ToInt32(datos1.lector["IdArticulo"]);
+                    
+                }
 
-                        aux.IdArticulo = (int)datos1.lector["IdArticulo"];
-
-                    }
-                    return aux;
-                }
-                catch (Exception Ex)
-                {
-                    throw Ex;
-                }
-                finally
-                {
-                    datos1.CerrarConexion();
-                }
+                return aux;
             }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            finally
+            {
+                datos1.CerrarConexion();
+            }
+        }
+
     }
 }
 

@@ -28,14 +28,15 @@ namespace GestorArticulos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAgregar agregar = new frmAgregar();
-            agregar.ShowDialog(); 
+            agregar.ShowDialog();
+            Cargar();
         }
 
         private void frmCatalogo_Load(object sender, EventArgs e)
         {
             Cargar();
         }
-        private void Cargar ()
+        public void Cargar ()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             try

@@ -63,27 +63,30 @@ namespace Negocio
 
         public void Agregar(Articulo nuevo)
         {
-            AccesoDatos Datos = new AccesoDatos();
-            ImagenNegocio negocioImagen = new ImagenNegocio();
-            Imagen imagen = new Imagen();
             try
-            { 
-                Datos.SetearQuery("insert into ARTICULOS (Codigo, Nombre, Descripcion,IdMarca,IdCategoria,Precio) VALUES ('"+nuevo.CodigoArticulo+"','"+nuevo.Nombre+"', '"+nuevo.Descripcion+"',@IdMarca,@IdCategoria, "+nuevo.Precio+")");
-                Datos.setearParametros("@IdMarca", nuevo.Marca.IdMarca);
-                Datos.setearParametros("@IdCategoria", nuevo.Categoria.IdCategoria);
-                Datos.ejecutarAccion();
-                imagen=negocioImagen.getIdImagen();
-                Datos.SetearQuery("insert into IMAGENES(IdArticulo, ImagenUrl) values(@IdArticulo , '"+nuevo.ImagenUrl.Descripcion+"')");
-                Datos.setearParametros("@IdArticulo", imagen.IdArticulo);
-                Datos.ejecutarAccion();
+            {
+                using (AccesoDatos Datos = new AccesoDatos())
+                {
+                    ImagenNegocio negocioImagen = new ImagenNegocio();
+                    Imagen imagen = new Imagen();
+
+                    Datos.SetearQuery("insert into ARTICULOS (Codigo, Nombre, Descripcion,IdMarca,IdCategoria,Precio) VALUES ('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "', '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria, " + nuevo.Precio + ")");
+                    Datos.setearParametros("@IdMarca", nuevo.Marca.IdMarca);
+                    Datos.setearParametros("@IdCategoria", nuevo.Categoria.IdCategoria);
+                    Datos.ejecutarAccion();
+
+                    imagen = negocioImagen.getImagen(); // Obtener el IdArticulo del artículo recién insertado
+
+                    // Insertar la imagen en la tabla IMAGENES
+                    Datos.SetearQuery("INSERT INTO IMAGENES(IdArticulo, ImagenUrl) VALUES(@IdArticulo, @ImagenUrl)");
+                    Datos.setearParametros("@IdArticulo", imagen.IdArticulo);
+                    Datos.setearParametros("@ImagenUrl", nuevo.ImagenUrl.Descripcion);
+                    Datos.ejecutarAccion();
+                }
             }
             catch (Exception Ex)
             {
                 throw Ex;
-            }
-            finally
-            {
-                Datos.CerrarConexion();
             }
         }
 
