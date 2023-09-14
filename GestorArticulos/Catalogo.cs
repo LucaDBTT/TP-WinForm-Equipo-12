@@ -35,6 +35,10 @@ namespace GestorArticulos
         private void frmCatalogo_Load(object sender, EventArgs e)
         {
             Cargar();
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Categoria");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
         }
         public void Cargar ()
         {
@@ -104,6 +108,22 @@ namespace GestorArticulos
             }
             dgvArticulo.DataSource = listaFiltrada;
             ocultarImagen();
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcionSeleccionada = cboCampo.SelectedItem.ToString();
+            if (opcionSeleccionada == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Precio menor a: ");
+                cboCriterio.Items.Add("Precio mayor a: ");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Contiene las letras: ");
+            }
         }
     }
 }

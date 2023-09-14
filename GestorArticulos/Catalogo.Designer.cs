@@ -42,8 +42,8 @@ namespace GestorArticulos
             this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.cboxCriterio = new System.Windows.Forms.ComboBox();
-            this.cboxCampo = new System.Windows.Forms.ComboBox();
+            this.cboCriterio = new System.Windows.Forms.ComboBox();
+            this.cboCampo = new System.Windows.Forms.ComboBox();
             this.lblFiltroEspecifico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
@@ -139,9 +139,9 @@ namespace GestorArticulos
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Controls.Add(this.btnFiltrar);
-            this.panel1.Controls.Add(this.cboxCriterio);
+            this.panel1.Controls.Add(this.cboCriterio);
             this.panel1.Controls.Add(this.txtFiltro);
-            this.panel1.Controls.Add(this.cboxCampo);
+            this.panel1.Controls.Add(this.cboCampo);
             this.panel1.Controls.Add(this.lblFiltroEspecifico);
             this.panel1.Location = new System.Drawing.Point(2, 22);
             this.panel1.Name = "panel1";
@@ -157,21 +157,24 @@ namespace GestorArticulos
             this.btnFiltrar.Text = "Buscar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
-            // cboxCriterio
+            // cboCriterio
             // 
-            this.cboxCriterio.FormattingEnabled = true;
-            this.cboxCriterio.Location = new System.Drawing.Point(24, 175);
-            this.cboxCriterio.Name = "cboxCriterio";
-            this.cboxCriterio.Size = new System.Drawing.Size(121, 21);
-            this.cboxCriterio.TabIndex = 7;
+            this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCriterio.FormattingEnabled = true;
+            this.cboCriterio.Location = new System.Drawing.Point(24, 175);
+            this.cboCriterio.Name = "cboCriterio";
+            this.cboCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cboCriterio.TabIndex = 7;
             // 
-            // cboxCampo
+            // cboCampo
             // 
-            this.cboxCampo.FormattingEnabled = true;
-            this.cboxCampo.Location = new System.Drawing.Point(24, 86);
-            this.cboxCampo.Name = "cboxCampo";
-            this.cboxCampo.Size = new System.Drawing.Size(121, 21);
-            this.cboxCampo.TabIndex = 6;
+            this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCampo.FormattingEnabled = true;
+            this.cboCampo.Location = new System.Drawing.Point(24, 86);
+            this.cboCampo.Name = "cboCampo";
+            this.cboCampo.Size = new System.Drawing.Size(121, 21);
+            this.cboCampo.TabIndex = 6;
+            this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // lblFiltroEspecifico
             // 
@@ -223,8 +226,8 @@ namespace GestorArticulos
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.ComboBox cboxCriterio;
-        private System.Windows.Forms.ComboBox cboxCampo;
+        private System.Windows.Forms.ComboBox cboCriterio;
+        private System.Windows.Forms.ComboBox cboCampo;
         private System.Windows.Forms.Label lblFiltroEspecifico;
     }
 }
