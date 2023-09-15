@@ -41,10 +41,11 @@ namespace GestorArticulos
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.pboxImagen = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cboCriterio = new System.Windows.Forms.ComboBox();
             this.cboCampo = new System.Windows.Forms.ComboBox();
             this.lblFiltroEspecifico = new System.Windows.Forms.Label();
+            this.lbCampo = new System.Windows.Forms.Label();
+            this.lbCriterio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,7 +55,7 @@ namespace GestorArticulos
             // 
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulo.Location = new System.Drawing.Point(199, 63);
+            this.dgvArticulo.Location = new System.Drawing.Point(199, 81);
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -65,15 +66,17 @@ namespace GestorArticulos
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(196, 22);
+            this.lblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTitulo.Location = new System.Drawing.Point(386, 3);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(118, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(161, 20);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Bienvenido al catalogo!";
+            this.lblTitulo.Text = "Bienvenido al catálogo!";
             // 
             // txtboxBuscar
             // 
-            this.txtboxBuscar.Location = new System.Drawing.Point(389, 19);
+            this.txtboxBuscar.Location = new System.Drawing.Point(315, 37);
             this.txtboxBuscar.Name = "txtboxBuscar";
             this.txtboxBuscar.Size = new System.Drawing.Size(362, 20);
             this.txtboxBuscar.TabIndex = 2;
@@ -82,7 +85,7 @@ namespace GestorArticulos
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(230, 398);
+            this.btnAgregar.Location = new System.Drawing.Point(233, 425);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 3;
@@ -93,15 +96,15 @@ namespace GestorArticulos
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(337, 19);
+            this.lblBuscar.Location = new System.Drawing.Point(216, 44);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(46, 13);
+            this.lblBuscar.Size = new System.Drawing.Size(70, 13);
             this.lblBuscar.TabIndex = 4;
-            this.lblBuscar.Text = "Buscar: ";
+            this.lblBuscar.Text = "Filtro rápido : ";
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(413, 398);
+            this.btnModificar.Location = new System.Drawing.Point(413, 425);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 6;
@@ -111,7 +114,7 @@ namespace GestorArticulos
             // 
             // btnELiminar
             // 
-            this.btnELiminar.Location = new System.Drawing.Point(600, 398);
+            this.btnELiminar.Location = new System.Drawing.Point(602, 425);
             this.btnELiminar.Name = "btnELiminar";
             this.btnELiminar.Size = new System.Drawing.Size(75, 23);
             this.btnELiminar.TabIndex = 7;
@@ -121,7 +124,7 @@ namespace GestorArticulos
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(24, 252);
+            this.txtFiltro.Location = new System.Drawing.Point(24, 278);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(121, 20);
             this.txtFiltro.TabIndex = 8;
@@ -140,30 +143,22 @@ namespace GestorArticulos
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Controls.Add(this.btnFiltrar);
+            this.panel1.Controls.Add(this.lbCriterio);
+            this.panel1.Controls.Add(this.lbCampo);
             this.panel1.Controls.Add(this.cboCriterio);
             this.panel1.Controls.Add(this.txtFiltro);
             this.panel1.Controls.Add(this.cboCampo);
             this.panel1.Controls.Add(this.lblFiltroEspecifico);
             this.panel1.Location = new System.Drawing.Point(2, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 526);
+            this.panel1.Size = new System.Drawing.Size(164, 377);
             this.panel1.TabIndex = 9;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(49, 327);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 10;
-            this.btnFiltrar.Text = "Buscar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
             // cboCriterio
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(24, 175);
+            this.cboCriterio.Location = new System.Drawing.Point(24, 204);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboCriterio.TabIndex = 7;
@@ -172,7 +167,7 @@ namespace GestorArticulos
             // 
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Location = new System.Drawing.Point(24, 86);
+            this.cboCampo.Location = new System.Drawing.Point(24, 133);
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(121, 21);
             this.cboCampo.TabIndex = 6;
@@ -181,17 +176,37 @@ namespace GestorArticulos
             // lblFiltroEspecifico
             // 
             this.lblFiltroEspecifico.AutoSize = true;
-            this.lblFiltroEspecifico.Location = new System.Drawing.Point(61, 26);
+            this.lblFiltroEspecifico.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblFiltroEspecifico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.lblFiltroEspecifico.Location = new System.Drawing.Point(40, 41);
             this.lblFiltroEspecifico.Name = "lblFiltroEspecifico";
-            this.lblFiltroEspecifico.Size = new System.Drawing.Size(35, 13);
+            this.lblFiltroEspecifico.Size = new System.Drawing.Size(72, 16);
             this.lblFiltroEspecifico.TabIndex = 5;
-            this.lblFiltroEspecifico.Text = "Filtrar ";
+            this.lblFiltroEspecifico.Text = "Filtrar por : ";
+            // 
+            // lbCampo
+            // 
+            this.lbCampo.AutoSize = true;
+            this.lbCampo.Location = new System.Drawing.Point(40, 95);
+            this.lbCampo.Name = "lbCampo";
+            this.lbCampo.Size = new System.Drawing.Size(81, 13);
+            this.lbCampo.TabIndex = 10;
+            this.lbCampo.Text = "Elija el campo : ";
+            // 
+            // lbCriterio
+            // 
+            this.lbCriterio.AutoSize = true;
+            this.lbCriterio.Location = new System.Drawing.Point(40, 178);
+            this.lbCriterio.Name = "lbCriterio";
+            this.lbCriterio.Size = new System.Drawing.Size(80, 13);
+            this.lbCriterio.TabIndex = 11;
+            this.lbCriterio.Text = "Elija el criterio : ";
             // 
             // frmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1247, 591);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnELiminar);
@@ -227,10 +242,11 @@ namespace GestorArticulos
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cboCriterio;
         private System.Windows.Forms.ComboBox cboCampo;
         private System.Windows.Forms.Label lblFiltroEspecifico;
+        private System.Windows.Forms.Label lbCampo;
+        private System.Windows.Forms.Label lbCriterio;
     }
 }
 
