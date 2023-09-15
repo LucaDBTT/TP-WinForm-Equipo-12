@@ -155,6 +155,17 @@ namespace GestorArticulos
             }
 
         }
+        private bool SoloNumeros(string numeros)
+        {
+            foreach (char caracter in numeros)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         private void txtbUrlImagen_Leave(object sender, EventArgs e)
         {
@@ -162,5 +173,19 @@ namespace GestorArticulos
             ImagenAddChange(url);
 
         }
+
+        private void txtbPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (!(SoloNumeros(txtbPrecio.Text)))
+            {
+                MessageBox.Show("Ingrese solo números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                
+            }
+        }
+           
+        
+
+     
     }
 }

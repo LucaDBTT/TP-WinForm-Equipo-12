@@ -49,8 +49,10 @@ namespace GestorArticulos
             this.txtbPrecio = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PanelAgregar = new System.Windows.Forms.Panel();
+            this.panelBotones = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.PanelAgregar.SuspendLayout();
+            this.panelBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -64,7 +66,7 @@ namespace GestorArticulos
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(57, 469);
+            this.btnAgregar.Location = new System.Drawing.Point(20, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 1;
@@ -82,7 +84,7 @@ namespace GestorArticulos
             // 
             // pboxImagen
             // 
-            this.pboxImagen.Location = new System.Drawing.Point(343, 40);
+            this.pboxImagen.Location = new System.Drawing.Point(343, 93);
             this.pboxImagen.Name = "pboxImagen";
             this.pboxImagen.Size = new System.Drawing.Size(328, 359);
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -101,7 +103,7 @@ namespace GestorArticulos
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(188, 469);
+            this.btnCancelar.Location = new System.Drawing.Point(164, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -205,6 +207,7 @@ namespace GestorArticulos
             this.txtbPrecio.Size = new System.Drawing.Size(111, 20);
             this.txtbPrecio.TabIndex = 16;
             this.toolTip1.SetToolTip(this.txtbPrecio, "Ingrese el precio...");
+            this.txtbPrecio.TextChanged += new System.EventHandler(this.txtbPrecio_TextChanged);
             // 
             // PanelAgregar
             // 
@@ -228,21 +231,31 @@ namespace GestorArticulos
             this.PanelAgregar.Size = new System.Drawing.Size(285, 412);
             this.PanelAgregar.TabIndex = 17;
             // 
+            // panelBotones
+            // 
+            this.panelBotones.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelBotones.Controls.Add(this.btnCancelar);
+            this.panelBotones.Controls.Add(this.btnAgregar);
+            this.panelBotones.Location = new System.Drawing.Point(44, 458);
+            this.panelBotones.Name = "panelBotones";
+            this.panelBotones.Size = new System.Drawing.Size(256, 30);
+            this.panelBotones.TabIndex = 18;
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 521);
+            this.Controls.Add(this.panelBotones);
             this.Controls.Add(this.PanelAgregar);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pboxImagen);
-            this.Controls.Add(this.btnAgregar);
             this.Name = "frmAgregar";
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).EndInit();
             this.PanelAgregar.ResumeLayout(false);
             this.PanelAgregar.PerformLayout();
+            this.panelBotones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -268,5 +281,6 @@ namespace GestorArticulos
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtbPrecio;
         private System.Windows.Forms.Panel PanelAgregar;
+        private System.Windows.Forms.Panel panelBotones;
     }
 }
