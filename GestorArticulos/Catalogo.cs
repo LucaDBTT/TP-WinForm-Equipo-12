@@ -69,7 +69,7 @@ namespace GestorArticulos
             cargarImagen(url);
         }
 
-        private void cargarImagen(string imagen)
+        public void cargarImagen(string imagen)
         {
             try
             {
@@ -127,6 +127,16 @@ namespace GestorArticulos
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Contiene las letras: ");
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+            frmAgregar modificar = new frmAgregar(seleccionado);
+            modificar.ShowDialog();
+            Cargar(); 
         }
     }
 }

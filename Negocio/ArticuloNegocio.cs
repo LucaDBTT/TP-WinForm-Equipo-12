@@ -18,7 +18,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearQuery("select a.Id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as MarcaDescripcion, c.Descripcion as CategoriaDescripcion, im.ImagenUrl from ARTICULOS a INNER join IMAGENES im ON a.Id= im.IdArticulo INNER JOIN MARCAS m ON a.IdMarca = m.Id LEFT JOIN CATEGORIAS c ON a.IdCategoria = c.Id");
+                datos.SetearQuery("select a.Id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as MarcaDescripcion, a.IdMarca, c.Descripcion as CategoriaDescripcion, a.IdCategoria, im.ImagenUrl from ARTICULOS a INNER join IMAGENES im ON a.Id= im.IdArticulo INNER JOIN MARCAS m ON a.IdMarca = m.Id LEFT JOIN CATEGORIAS c ON a.IdCategoria = c.Id");
                 datos.EjecutarLectura();
                 while (datos.lector.Read())
                 {
@@ -31,6 +31,7 @@ namespace Negocio
                     aux.Precio = (decimal)datos.lector["Precio"];
                     aux.Marca = new Marca();
                     aux.Marca.Descripcion = (string)datos.lector["MarcaDescripcion"];
+                    aux.Marca.IdMarca = (int)datos.lector["IdMarca"];
                     aux.Categoria = new Categoria();
                     aux.ImagenUrl = new Imagen();
                     
@@ -42,6 +43,7 @@ namespace Negocio
                     {
                         aux.Categoria = new Categoria();
                         aux.Categoria.Descripcion = (string)datos.lector["CategoriaDescripcion"];
+                        aux.Categoria.IdCategoria = (int)datos.lector["IdCategoria"];
                     }
 
                   if (!(datos.lector["ImagenUrl"] is DBNull))
@@ -92,19 +94,35 @@ namespace Negocio
 
         public void Modificar(Articulo nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();
+            AccesoDatos Datos = new AccesoDatos();
+            ImagenNegocio negocioImagen = new ImagenNegocio();
+            Imagen imagen = new Imagen();
+
             try
             {
-                datos.SetearQuery("");
-                datos.EjecutarLectura();
+                Datos.SetearQuery("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @IdArticulo");
+                Datos.setearParametros("@Codigo", nuevo.CodigoArticulo);
+                Datos.setearParametros("@Nombre", nuevo.Nombre);
+                Datos.setearParametros("@Descripcion", nuevo.Descripcion);
+                Datos.setearParametros("@IdMarca", nuevo.Marca.IdMarca);
+                Datos.setearParametros("@IdCategoria", nuevo.Categoria.IdCategoria);
+                Datos.setearParametros("@Precio", nuevo.Precio);
+                Datos.setearParametros("@IdArticulo", nuevo.IdArticulo);
+                Datos.ejecutarAccion();
+
+                
+                Datos.SetearQuery("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo2");
+                Datos.setearParametros("@ImagenUrl", nuevo.ImagenUrl.Descripcion);
+                Datos.setearParametros("@IdArticulo2", nuevo.IdArticulo);
+                Datos.ejecutarAccion();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                throw Ex;
+                throw ex;
             }
             finally
             {
-                datos.CerrarConexion();
+                Datos.CerrarConexion();
             }
         }
         public void bajaFisica(int id)

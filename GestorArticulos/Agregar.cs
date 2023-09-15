@@ -15,9 +15,17 @@ namespace GestorArticulos
 {
     public partial class frmAgregar : Form
     {
+        private Articulo Articulo = null;
         public frmAgregar()
         {
             InitializeComponent();
+
+        }
+        public frmAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            this.Articulo = articulo;
+            Text = "Modificar";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -32,7 +40,39 @@ namespace GestorArticulos
             try
             {
                 cboxCategoria.DataSource = categoria.ListarCategorias();
+                cboxCategoria.ValueMember = "IdCategoria";
+                cboxCategoria.DisplayMember = "Descripcion";
                 cboxMarca.DataSource = marca.ListarMarcas();
+                cboxMarca.ValueMember = "IdMarca";
+                cboxMarca.DisplayMember = "Descripcion";
+
+                if(Articulo != null )
+                {
+                    txtbCodigo.Text = Articulo.CodigoArticulo;
+                    txtbNombre.Text = Articulo.Nombre;
+                    txtbDescripcion.Text = Articulo.Descripcion;
+                    txtbPrecio.Text = Articulo.Precio.ToString();
+                    ImagenAddChange(Articulo.ImagenUrl.Descripcion);
+                    txtbUrlImagen.Text = Articulo.ImagenUrl.Descripcion;
+                    if (Articulo.Categoria != null)
+                    {
+                        if (Articulo.Categoria.Descripcion == null)
+                        {
+                            cboxCategoria.SelectedValue = -1;
+                        }
+                        else
+                        {
+                            cboxCategoria.SelectedValue = Articulo.Categoria.IdCategoria;
+                        }
+                    }
+                    else
+                    {
+                        cboxCategoria.SelectedValue = -1;
+                    }
+
+                    cboxMarca.SelectedValue = Articulo.Marca.IdMarca; 
+
+                }
 
 
             }
@@ -56,22 +96,34 @@ namespace GestorArticulos
       
         private void btnAgregar_Click(object sender, EventArgs e)
         {      
-            Articulo articulo = new Articulo();
+            
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                articulo.CodigoArticulo = txtbCodigo.Text;
-                articulo.Nombre = txtbNombre.Text;
-                articulo.Descripcion = txtbDescripcion.Text;
-                articulo.Precio = decimal.Parse(txtbPrecio.Text);
-                articulo.Marca = (Marca)cboxMarca.SelectedItem;
-                articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
-                articulo.ImagenUrl = new Imagen();
-                articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
+                if (Articulo == null)
+                {
+                    Articulo = new Articulo();
+                }
 
-                articuloNegocio.Agregar(articulo);
-                
-                MessageBox.Show("Agregado correctamente!");
+                Articulo.CodigoArticulo = txtbCodigo.Text;
+                Articulo.Nombre = txtbNombre.Text;
+                Articulo.Descripcion = txtbDescripcion.Text;
+                Articulo.Precio = decimal.Parse(txtbPrecio.Text);
+                Articulo.Marca = (Marca)cboxMarca.SelectedItem;
+                Articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
+                Articulo.ImagenUrl = new Imagen();
+                Articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
+            
+                if(Articulo.IdArticulo != 0)
+                {
+                    articuloNegocio.Modificar(Articulo);
+                    MessageBox.Show("Modificado correctamente!");
+                }
+                else
+                {
+                    articuloNegocio.Agregar(Articulo);
+                    MessageBox.Show("Agregado correctamente!");
+                }
                 Close();
                 
                 
@@ -83,10 +135,8 @@ namespace GestorArticulos
             }
         }
 
-
-        private void txtbUrlImagen_Leave(object sender, EventArgs e)
+        private void ImagenAddChange(string url)
         {
-            string url = txtbUrlImagen.Text.Trim();
 
             if (!string.IsNullOrEmpty(url))
             {
@@ -103,6 +153,13 @@ namespace GestorArticulos
             {
                 pboxImagen.Load("https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg");
             }
+
+        }
+
+        private void txtbUrlImagen_Leave(object sender, EventArgs e)
+        {
+            string url = txtbUrlImagen.Text.Trim();
+            ImagenAddChange(url);
 
         }
     }
