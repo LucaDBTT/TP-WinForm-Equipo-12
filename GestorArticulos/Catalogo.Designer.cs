@@ -126,6 +126,7 @@ namespace GestorArticulos
             this.txtFiltro.Size = new System.Drawing.Size(121, 20);
             this.txtFiltro.TabIndex = 8;
             this.toolTip1.SetToolTip(this.txtFiltro, "Busque un articulo...");
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // pboxImagen
             // 

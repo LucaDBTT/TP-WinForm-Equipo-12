@@ -12,9 +12,9 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        public List <Articulo> ListarArticulos()
+        public List<Articulo> ListarArticulos()
         {
-              List<Articulo> Lista = new List<Articulo>();
+            List<Articulo> Lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -34,7 +34,7 @@ namespace Negocio
                     aux.Marca.IdMarca = (int)datos.lector["IdMarca"];
                     aux.Categoria = new Categoria();
                     aux.ImagenUrl = new Imagen();
-                    
+
                     if (datos.lector["CategoriaDescripcion"] is DBNull)
                     {
                         aux.Categoria = null;
@@ -46,8 +46,8 @@ namespace Negocio
                         aux.Categoria.IdCategoria = (int)datos.lector["IdCategoria"];
                     }
 
-                  if (!(datos.lector["ImagenUrl"] is DBNull))
-                     aux.ImagenUrl.Descripcion = (string)datos.lector["ImagenUrl"];
+                    if (!(datos.lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl.Descripcion = (string)datos.lector["ImagenUrl"];
 
                     Lista.Add(aux);
                 }
@@ -110,7 +110,7 @@ namespace Negocio
                 Datos.setearParametros("@IdArticulo", nuevo.IdArticulo);
                 Datos.ejecutarAccion();
 
-                
+
                 Datos.SetearQuery("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo2");
                 Datos.setearParametros("@ImagenUrl", nuevo.ImagenUrl.Descripcion);
                 Datos.setearParametros("@IdArticulo2", nuevo.IdArticulo);
@@ -128,7 +128,7 @@ namespace Negocio
         public void bajaFisica(int id)
         {
             AccesoDatos datos = new AccesoDatos();
-             DialogResult dialogo = MessageBox.Show("Esta seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogo = MessageBox.Show("Esta seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             try
             {
@@ -138,7 +138,7 @@ namespace Negocio
                     datos.setearParametros("@id", id);
                     datos.ejecutarAccion();
                     MessageBox.Show("Articulo eliminado con exito");
-                    
+
                 }
             }
             catch (Exception ex)
@@ -151,7 +151,107 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public List<Articulo> filtrar(string campo, string criterio, string filtroAvanzado)
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "select Codigo, Nombre, A.Descripcion, M.Descripcion as MarcaDescripcion, C.Descripcion as CategoriaDescripcion,Precio,I.ImagenUrl, A.IdCategoria, A.IdMarca, \r\nA.Id from ARTICULOS as A, CATEGORIAS as C, MARCAS as M, IMAGENES as I  \r\nwhere C.Id = A.IdCategoria and M.Id = A.IdMarca and I.IdArticulo = A.Id and ";
+                switch (campo)
+                {
 
+                    case "Marca":
+                        switch (criterio)
+                        {
+                            case "Contiene las letras: ":
 
+                                consulta += "M.Descripcion like '%" + filtroAvanzado + "%'";
+
+                                break;
+                        }
+                        break;
+                    case "Categoria":
+                        switch (criterio)
+                        {
+                            case "Contiene las letras: ":
+                                consulta += "C.Descripcion like '%" + filtroAvanzado + "%'";
+                                break;
+                        }
+                        break;
+                    case "Nombre":
+                        switch (criterio)
+                        {
+                            case "Contiene las letras: ":
+                                consulta += "A.Nombre like '%" + filtroAvanzado + "%'";
+                                break;
+                        }
+                        break;
+
+                }
+
+                if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Precio mayor a: ":
+                            consulta += "Precio > " + filtroAvanzado;
+                            break;
+
+                        case "Precio menor a: ":
+                            consulta += "Precio < " + filtroAvanzado;
+                            break;
+                    }
+
+                }
+
+                datos.SetearQuery(consulta);
+                datos.EjecutarLectura();
+
+                while (datos.lector.Read())
+                {
+                    Articulo aux = new Articulo();
+
+                    aux.IdArticulo = (int)datos.lector["Id"];
+                    aux.CodigoArticulo = (string)datos.lector["Codigo"];
+                    aux.Nombre = (string)datos.lector["Nombre"];
+                    aux.Descripcion = (string)datos.lector["Descripcion"];
+                    aux.Precio = (decimal)datos.lector["Precio"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.lector["MarcaDescripcion"];
+                    aux.Marca.IdMarca = (int)datos.lector["IdMarca"];
+                    aux.Categoria = new Categoria();
+                    aux.ImagenUrl = new Imagen();
+
+                    if (datos.lector["CategoriaDescripcion"] is DBNull)
+                    {
+                        aux.Categoria = null;
+                    }
+                    else
+                    {
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.Descripcion = (string)datos.lector["CategoriaDescripcion"];
+                        aux.Categoria.IdCategoria = (int)datos.lector["IdCategoria"];
+                    }
+
+                    if (!(datos.lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl.Descripcion = (string)datos.lector["ImagenUrl"];
+
+                    articulos.Add(aux);
+                }
+                return articulos;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }
+
+        
+

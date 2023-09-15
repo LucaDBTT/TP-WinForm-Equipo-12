@@ -137,6 +137,72 @@ namespace GestorArticulos
             frmAgregar modificar = new frmAgregar(seleccionado);
             modificar.ShowDialog();
             Cargar(); 
+        
+            }
+
+        private bool ValidarFiltro()
+        {
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Ingrese el campo para filtrar");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Ingrese el criterio para filtrar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (!(SoloNumeros(txtFiltro.Text)))
+                {
+                    MessageBox.Show("Ingrese solo números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool SoloNumeros(string numeros)
+        {
+            foreach (char caracter in numeros)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            try
+            {
+                if (ValidarFiltro())
+                {
+                    return;
+                }
+
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtroAvanzado = txtFiltro.Text;
+
+                if (!(string.IsNullOrEmpty(txtFiltro.Text)))
+                { dgvArticulo.DataSource = articulo.filtrar(campo, criterio, filtroAvanzado); }
+
+                if (filtroAvanzado == "")
+                {
+                    dgvArticulo.DataSource = articulo.ListarArticulos();
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
