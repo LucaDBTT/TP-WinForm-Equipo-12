@@ -50,6 +50,8 @@ namespace GestorArticulos
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PanelAgregar = new System.Windows.Forms.Panel();
             this.panelBotones = new System.Windows.Forms.Panel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.PanelAgregar.SuspendLayout();
             this.panelBotones.SuspendLayout();
@@ -69,7 +71,7 @@ namespace GestorArticulos
             this.btnAgregar.Location = new System.Drawing.Point(20, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Aceptar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -79,8 +81,9 @@ namespace GestorArticulos
             this.txtbCodigo.Location = new System.Drawing.Point(117, 35);
             this.txtbCodigo.Name = "txtbCodigo";
             this.txtbCodigo.Size = new System.Drawing.Size(111, 20);
-            this.txtbCodigo.TabIndex = 2;
+            this.txtbCodigo.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtbCodigo, "Ingrese el codigo.. ");
+            this.txtbCodigo.TextChanged += new System.EventHandler(this.txtbCodigo_TextChanged);
             // 
             // pboxImagen
             // 
@@ -106,7 +109,7 @@ namespace GestorArticulos
             this.btnCancelar.Location = new System.Drawing.Point(164, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -152,24 +155,27 @@ namespace GestorArticulos
             this.txtbNombre.Location = new System.Drawing.Point(117, 83);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(111, 20);
-            this.txtbNombre.TabIndex = 10;
+            this.txtbNombre.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtbNombre, "Ingrese el nombre del articulo..");
+            this.txtbNombre.TextChanged += new System.EventHandler(this.txtbNombre_TextChanged);
             // 
             // txtbDescripcion
             // 
             this.txtbDescripcion.Location = new System.Drawing.Point(117, 133);
             this.txtbDescripcion.Name = "txtbDescripcion";
             this.txtbDescripcion.Size = new System.Drawing.Size(111, 20);
-            this.txtbDescripcion.TabIndex = 11;
+            this.txtbDescripcion.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtbDescripcion, "Ingrese una breve descripcion..");
+            this.txtbDescripcion.TextChanged += new System.EventHandler(this.txtbDescripcion_TextChanged);
             // 
             // txtbUrlImagen
             // 
             this.txtbUrlImagen.Location = new System.Drawing.Point(117, 190);
             this.txtbUrlImagen.Name = "txtbUrlImagen";
             this.txtbUrlImagen.Size = new System.Drawing.Size(111, 20);
-            this.txtbUrlImagen.TabIndex = 12;
+            this.txtbUrlImagen.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtbUrlImagen, "Ingrese la url...");
+            this.txtbUrlImagen.TextChanged += new System.EventHandler(this.txtbUrlImagen_TextChanged);
             this.txtbUrlImagen.Leave += new System.EventHandler(this.txtbUrlImagen_Leave);
             // 
             // cboxCategoria
@@ -179,7 +185,7 @@ namespace GestorArticulos
             this.cboxCategoria.Location = new System.Drawing.Point(117, 297);
             this.cboxCategoria.Name = "cboxCategoria";
             this.cboxCategoria.Size = new System.Drawing.Size(111, 21);
-            this.cboxCategoria.TabIndex = 13;
+            this.cboxCategoria.TabIndex = 5;
             this.toolTip1.SetToolTip(this.cboxCategoria, "Seleccione una categoria...");
             // 
             // lblCategoria
@@ -205,7 +211,7 @@ namespace GestorArticulos
             this.txtbPrecio.Location = new System.Drawing.Point(117, 344);
             this.txtbPrecio.Name = "txtbPrecio";
             this.txtbPrecio.Size = new System.Drawing.Size(111, 20);
-            this.txtbPrecio.TabIndex = 16;
+            this.txtbPrecio.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtbPrecio, "Ingrese el precio...");
             this.txtbPrecio.TextChanged += new System.EventHandler(this.txtbPrecio_TextChanged);
             // 
@@ -228,7 +234,7 @@ namespace GestorArticulos
             this.PanelAgregar.Controls.Add(this.lblMarca);
             this.PanelAgregar.Location = new System.Drawing.Point(33, 40);
             this.PanelAgregar.Name = "PanelAgregar";
-            this.PanelAgregar.Size = new System.Drawing.Size(285, 412);
+            this.PanelAgregar.Size = new System.Drawing.Size(285, 422);
             this.PanelAgregar.TabIndex = 17;
             // 
             // panelBotones
@@ -236,16 +242,35 @@ namespace GestorArticulos
             this.panelBotones.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panelBotones.Controls.Add(this.btnCancelar);
             this.panelBotones.Controls.Add(this.btnAgregar);
-            this.panelBotones.Location = new System.Drawing.Point(44, 458);
+            this.panelBotones.Location = new System.Drawing.Point(45, 479);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(256, 30);
             this.panelBotones.TabIndex = 18;
+            // 
+            // progressBar
+            // 
+            this.progressBar.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.progressBar.Location = new System.Drawing.Point(270, 531);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(115, 31);
+            this.progressBar.TabIndex = 19;
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Location = new System.Drawing.Point(316, 538);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(21, 13);
+            this.lblPorcentaje.TabIndex = 20;
+            this.lblPorcentaje.Text = "0%";
             // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 521);
+            this.ClientSize = new System.Drawing.Size(683, 573);
+            this.Controls.Add(this.lblPorcentaje);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.panelBotones);
             this.Controls.Add(this.PanelAgregar);
             this.Controls.Add(this.pboxImagen);
@@ -257,6 +282,7 @@ namespace GestorArticulos
             this.PanelAgregar.PerformLayout();
             this.panelBotones.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -282,5 +308,7 @@ namespace GestorArticulos
         private System.Windows.Forms.TextBox txtbPrecio;
         private System.Windows.Forms.Panel PanelAgregar;
         private System.Windows.Forms.Panel panelBotones;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lblPorcentaje;
     }
 }
