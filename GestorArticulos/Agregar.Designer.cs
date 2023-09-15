@@ -258,7 +258,7 @@ namespace GestorArticulos
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(316, 538);
+            this.lblPorcentaje.Location = new System.Drawing.Point(310, 540);
             this.lblPorcentaje.Name = "lblPorcentaje";
             this.lblPorcentaje.Size = new System.Drawing.Size(21, 13);
             this.lblPorcentaje.TabIndex = 20;
