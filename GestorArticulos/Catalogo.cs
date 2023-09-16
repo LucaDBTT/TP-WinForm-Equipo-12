@@ -45,7 +45,6 @@ namespace GestorArticulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                this.BackgroundImage = Properties.Resources.presentacionWF1;
                 ListaArticulos = negocio.ListarArticulos();
                 dgvArticulo.DataSource = ListaArticulos;
                 ocultarImagen();
@@ -203,5 +202,6 @@ namespace GestorArticulos
             }
 
         }
+
     }
 }
