@@ -27,7 +27,6 @@ namespace GestorArticulos
             this.Articulo = articulo;
             Text = "Modificar";
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close(); 
@@ -232,7 +231,7 @@ namespace GestorArticulos
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Imagen rota, por favor modifiquela...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -260,13 +259,11 @@ namespace GestorArticulos
 
         }
 
-        private void txtbPrecio_TextChanged(object sender, EventArgs e)
+        private void txtbPrecio_Leave(object sender, EventArgs e)
         {
             if (!(SoloNumeros(txtbPrecio.Text)))
             {
                 MessageBox.Show("Ingrese solo números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                
             }
             if (txtbPrecio.Text.Length == 0)
             {
@@ -277,14 +274,13 @@ namespace GestorArticulos
             {
                 progressBar.Value += 20;
                 lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                 if (progressBar.Value == 100)
+                if (progressBar.Value == 100)
                     lblPorcentaje.Text = "Completo!";
-                
             }
-            
         }
+   
 
-        private void txtbCodigo_TextChanged(object sender, EventArgs e)
+    private void txtbCodigo_TextChanged(object sender, EventArgs e)
         {
             if (txtbCodigo.Text.Length == 0)
             {
@@ -350,11 +346,5 @@ namespace GestorArticulos
             }
         }
 
-
-
-        
-
-       
-        
     }
 }

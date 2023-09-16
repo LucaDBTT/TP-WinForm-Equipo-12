@@ -213,7 +213,7 @@ namespace GestorArticulos
             this.txtbPrecio.Size = new System.Drawing.Size(111, 20);
             this.txtbPrecio.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtbPrecio, "Ingrese el precio...");
-            this.txtbPrecio.TextChanged += new System.EventHandler(this.txtbPrecio_TextChanged);
+            this.txtbPrecio.Leave += new System.EventHandler(this.txtbPrecio_Leave);
             // 
             // PanelAgregar
             // 

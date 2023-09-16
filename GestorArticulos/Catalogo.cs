@@ -136,9 +136,8 @@ namespace GestorArticulos
 
             frmAgregar modificar = new frmAgregar(seleccionado);
             modificar.ShowDialog();
-            Cargar(); 
-        
-            }
+            Cargar();
+        }
 
         private bool ValidarFiltro()
         {
