@@ -29,6 +29,7 @@ namespace GestorArticulos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCatalogo));
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -48,6 +49,9 @@ namespace GestorArticulos
             this.panelBotones = new System.Windows.Forms.Panel();
             this.panelFiltroRapido = new System.Windows.Forms.Panel();
             this.lblImagen = new System.Windows.Forms.Label();
+            this.ttpAgregar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttpModificar = new System.Windows.Forms.ToolTip(this.components);
+            this.ttpEliminar = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +68,7 @@ namespace GestorArticulos
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulo.Size = new System.Drawing.Size(634, 318);
+            this.dgvArticulo.Size = new System.Drawing.Size(634, 383);
             this.dgvArticulo.TabIndex = 0;
             this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
             // 
@@ -90,14 +94,17 @@ namespace GestorArticulos
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAgregar.BackColor = System.Drawing.Color.LightCoral;
+            this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
+            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregar.Location = new System.Drawing.Point(38, 9);
+            this.btnAgregar.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnAgregar.Location = new System.Drawing.Point(57, 28);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(64, 64);
             this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = "Agregar";
+            this.ttpAgregar.SetToolTip(this.btnAgregar, "Agregar");
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -114,27 +121,31 @@ namespace GestorArticulos
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnModificar.BackColor = System.Drawing.Color.LightCoral;
+            this.btnModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnModificar.BackgroundImage")));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnModificar.Location = new System.Drawing.Point(274, 9);
+            this.btnModificar.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnModificar.Location = new System.Drawing.Point(174, 28);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.Size = new System.Drawing.Size(64, 64);
             this.btnModificar.TabIndex = 6;
-            this.btnModificar.Text = "Modificar";
+            this.ttpModificar.SetToolTip(this.btnModificar, "Modificar");
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnELiminar
             // 
-            this.btnELiminar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnELiminar.BackColor = System.Drawing.Color.LightCoral;
+            this.btnELiminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnELiminar.BackgroundImage")));
+            this.btnELiminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnELiminar.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnELiminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnELiminar.Location = new System.Drawing.Point(507, 9);
+            this.btnELiminar.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnELiminar.Location = new System.Drawing.Point(283, 28);
             this.btnELiminar.Name = "btnELiminar";
-            this.btnELiminar.Size = new System.Drawing.Size(75, 23);
+            this.btnELiminar.Size = new System.Drawing.Size(64, 64);
             this.btnELiminar.TabIndex = 7;
-            this.btnELiminar.Text = "Eliminar";
+            this.ttpEliminar.SetToolTip(this.btnELiminar, "Eliminar");
             this.btnELiminar.UseVisualStyleBackColor = false;
             this.btnELiminar.Click += new System.EventHandler(this.btnELiminar_Click);
             // 
@@ -151,7 +162,7 @@ namespace GestorArticulos
             this.pboxImagen.BackColor = System.Drawing.Color.LightCoral;
             this.pboxImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pboxImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pboxImagen.Location = new System.Drawing.Point(836, 142);
+            this.pboxImagen.Location = new System.Drawing.Point(836, 207);
             this.pboxImagen.Name = "pboxImagen";
             this.pboxImagen.Size = new System.Drawing.Size(406, 318);
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,9 +246,9 @@ namespace GestorArticulos
             this.panelBotones.Controls.Add(this.btnAgregar);
             this.panelBotones.Controls.Add(this.btnModificar);
             this.panelBotones.Controls.Add(this.btnELiminar);
-            this.panelBotones.Location = new System.Drawing.Point(196, 481);
+            this.panelBotones.Location = new System.Drawing.Point(836, 87);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(634, 44);
+            this.panelBotones.Size = new System.Drawing.Size(409, 113);
             this.panelBotones.TabIndex = 10;
             // 
             // panelFiltroRapido
@@ -258,7 +269,7 @@ namespace GestorArticulos
             this.lblImagen.BackColor = System.Drawing.Color.IndianRed;
             this.lblImagen.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImagen.ForeColor = System.Drawing.Color.White;
-            this.lblImagen.Location = new System.Drawing.Point(836, 123);
+            this.lblImagen.Location = new System.Drawing.Point(1195, 528);
             this.lblImagen.Name = "lblImagen";
             this.lblImagen.Size = new System.Drawing.Size(47, 13);
             this.lblImagen.TabIndex = 12;
@@ -314,6 +325,9 @@ namespace GestorArticulos
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Panel panelFiltroRapido;
         private System.Windows.Forms.Label lblImagen;
+        private System.Windows.Forms.ToolTip ttpAgregar;
+        private System.Windows.Forms.ToolTip ttpModificar;
+        private System.Windows.Forms.ToolTip ttpEliminar;
     }
 }
 

@@ -30,6 +30,7 @@ namespace GestorArticulos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregar));
             this.lblCodigo = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtbCodigo = new System.Windows.Forms.TextBox();
@@ -60,25 +61,30 @@ namespace GestorArticulos
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(53, 42);
+            this.lblCodigo.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblCodigo.Location = new System.Drawing.Point(50, 46);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(46, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(61, 16);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Codigo: ";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(20, 3);
+            this.btnAgregar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregar.Location = new System.Drawing.Point(25, 9);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(79, 30);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Aceptar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtbCodigo
             // 
-            this.txtbCodigo.Location = new System.Drawing.Point(117, 35);
+            this.txtbCodigo.Location = new System.Drawing.Point(117, 45);
             this.txtbCodigo.Name = "txtbCodigo";
             this.txtbCodigo.Size = new System.Drawing.Size(111, 20);
             this.txtbCodigo.TabIndex = 0;
@@ -87,9 +93,10 @@ namespace GestorArticulos
             // 
             // pboxImagen
             // 
-            this.pboxImagen.Location = new System.Drawing.Point(343, 93);
+            this.pboxImagen.BackColor = System.Drawing.Color.LightCoral;
+            this.pboxImagen.Location = new System.Drawing.Point(333, 65);
             this.pboxImagen.Name = "pboxImagen";
-            this.pboxImagen.Size = new System.Drawing.Size(328, 359);
+            this.pboxImagen.Size = new System.Drawing.Size(328, 384);
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxImagen.TabIndex = 3;
             this.pboxImagen.TabStop = false;
@@ -98,7 +105,7 @@ namespace GestorArticulos
             // 
             this.cboxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxMarca.FormattingEnabled = true;
-            this.cboxMarca.Location = new System.Drawing.Point(117, 245);
+            this.cboxMarca.Location = new System.Drawing.Point(117, 249);
             this.cboxMarca.Name = "cboxMarca";
             this.cboxMarca.Size = new System.Drawing.Size(111, 21);
             this.cboxMarca.TabIndex = 4;
@@ -106,53 +113,64 @@ namespace GestorArticulos
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(164, 3);
+            this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCancelar.Location = new System.Drawing.Point(176, 9);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(79, 30);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(53, 90);
+            this.lblNombre.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblNombre.Location = new System.Drawing.Point(46, 95);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(50, 13);
+            this.lblNombre.Size = new System.Drawing.Size(65, 16);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "Nombre: ";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(30, 140);
+            this.lblDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblDescripcion.Location = new System.Drawing.Point(22, 141);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(69, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(89, 16);
             this.lblDescripcion.TabIndex = 7;
             this.lblDescripcion.Text = "Descripcion: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 197);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(28, 199);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(83, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Imagen Url: ";
             // 
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(56, 253);
+            this.lblMarca.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMarca.Location = new System.Drawing.Point(50, 250);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(43, 13);
+            this.lblMarca.Size = new System.Drawing.Size(54, 16);
             this.lblMarca.TabIndex = 9;
             this.lblMarca.Text = "Marca: ";
             // 
             // txtbNombre
             // 
-            this.txtbNombre.Location = new System.Drawing.Point(117, 83);
+            this.txtbNombre.Location = new System.Drawing.Point(117, 94);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(111, 20);
             this.txtbNombre.TabIndex = 1;
@@ -161,7 +179,7 @@ namespace GestorArticulos
             // 
             // txtbDescripcion
             // 
-            this.txtbDescripcion.Location = new System.Drawing.Point(117, 133);
+            this.txtbDescripcion.Location = new System.Drawing.Point(117, 141);
             this.txtbDescripcion.Name = "txtbDescripcion";
             this.txtbDescripcion.Size = new System.Drawing.Size(111, 20);
             this.txtbDescripcion.TabIndex = 2;
@@ -170,7 +188,7 @@ namespace GestorArticulos
             // 
             // txtbUrlImagen
             // 
-            this.txtbUrlImagen.Location = new System.Drawing.Point(117, 190);
+            this.txtbUrlImagen.Location = new System.Drawing.Point(117, 198);
             this.txtbUrlImagen.Name = "txtbUrlImagen";
             this.txtbUrlImagen.Size = new System.Drawing.Size(111, 20);
             this.txtbUrlImagen.TabIndex = 3;
@@ -182,7 +200,7 @@ namespace GestorArticulos
             // 
             this.cboxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCategoria.FormattingEnabled = true;
-            this.cboxCategoria.Location = new System.Drawing.Point(117, 297);
+            this.cboxCategoria.Location = new System.Drawing.Point(117, 301);
             this.cboxCategoria.Name = "cboxCategoria";
             this.cboxCategoria.Size = new System.Drawing.Size(111, 21);
             this.cboxCategoria.TabIndex = 5;
@@ -191,33 +209,38 @@ namespace GestorArticulos
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(45, 305);
+            this.lblCategoria.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblCategoria.Location = new System.Drawing.Point(36, 302);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(58, 13);
+            this.lblCategoria.Size = new System.Drawing.Size(75, 16);
             this.lblCategoria.TabIndex = 14;
             this.lblCategoria.Text = "Categoria: ";
             // 
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(53, 351);
+            this.lblPrecio.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblPrecio.Location = new System.Drawing.Point(50, 349);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(43, 13);
+            this.lblPrecio.Size = new System.Drawing.Size(55, 16);
             this.lblPrecio.TabIndex = 15;
             this.lblPrecio.Text = "Precio: ";
             // 
             // txtbPrecio
             // 
-            this.txtbPrecio.Location = new System.Drawing.Point(117, 344);
+            this.txtbPrecio.Location = new System.Drawing.Point(117, 348);
             this.txtbPrecio.Name = "txtbPrecio";
             this.txtbPrecio.Size = new System.Drawing.Size(111, 20);
             this.txtbPrecio.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtbPrecio, "Ingrese el precio...");
+            this.txtbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbPrecio_KeyPress);
             this.txtbPrecio.Leave += new System.EventHandler(this.txtbPrecio_Leave);
             // 
             // PanelAgregar
             // 
-            this.PanelAgregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PanelAgregar.BackColor = System.Drawing.Color.LightCoral;
             this.PanelAgregar.Controls.Add(this.txtbNombre);
             this.PanelAgregar.Controls.Add(this.txtbPrecio);
             this.PanelAgregar.Controls.Add(this.lblCodigo);
@@ -239,26 +262,29 @@ namespace GestorArticulos
             // 
             // panelBotones
             // 
-            this.panelBotones.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelBotones.BackColor = System.Drawing.Color.LightCoral;
             this.panelBotones.Controls.Add(this.btnCancelar);
             this.panelBotones.Controls.Add(this.btnAgregar);
-            this.panelBotones.Location = new System.Drawing.Point(45, 479);
+            this.panelBotones.Location = new System.Drawing.Point(33, 478);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(256, 30);
+            this.panelBotones.Size = new System.Drawing.Size(285, 46);
             this.panelBotones.TabIndex = 18;
             // 
             // progressBar
             // 
-            this.progressBar.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.progressBar.Location = new System.Drawing.Point(270, 531);
+            this.progressBar.BackColor = System.Drawing.Color.Maroon;
+            this.progressBar.ForeColor = System.Drawing.Color.IndianRed;
+            this.progressBar.Location = new System.Drawing.Point(448, 487);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(115, 31);
+            this.progressBar.Size = new System.Drawing.Size(102, 30);
             this.progressBar.TabIndex = 19;
             // 
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(310, 540);
+            this.lblPorcentaje.BackColor = System.Drawing.Color.IndianRed;
+            this.lblPorcentaje.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblPorcentaje.Location = new System.Drawing.Point(489, 496);
             this.lblPorcentaje.Name = "lblPorcentaje";
             this.lblPorcentaje.Size = new System.Drawing.Size(21, 13);
             this.lblPorcentaje.TabIndex = 20;
@@ -268,12 +294,14 @@ namespace GestorArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(683, 573);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.panelBotones);
             this.Controls.Add(this.PanelAgregar);
             this.Controls.Add(this.pboxImagen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAgregar";
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
