@@ -89,9 +89,8 @@ namespace GestorArticulos
 
         private void frmAgregar_Load(object sender, EventArgs e)
         {
-
-
             cargar();
+            progressBar.Visible = false;
         }
 
         private bool buscarArticulo(string CodArticulo)
@@ -163,7 +162,34 @@ namespace GestorArticulos
              }
          }*/
 
-
+        private bool validarCampos()
+        {
+            if(string.IsNullOrEmpty(txtbCodigo.Text))
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtbDescripcion.Text))
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtbUrlImagen.Text))
+            {
+                return true;
+            }
+            if (cboxMarca.SelectedIndex < 0)
+            {
+                return true;
+            }
+            if (cboxCategoria.SelectedIndex < 0)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtbPrecio.Text))
+            {
+                return true;
+            }         
+            return false;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
@@ -177,6 +203,13 @@ namespace GestorArticulos
             progressBar.Value = 0;
 
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+
+            if (validarCampos())
+            {
+                btnAgregar.Enabled = true; // Habilitar el botón nuevamente.
+                MessageBox.Show("Campos incompletos...");
+                return; // Salir del método sin guardar el artículo.
+            }
 
             if (buscarArticulo(txtbCodigo.Text))
             {
@@ -196,50 +229,49 @@ namespace GestorArticulos
                 Articulo.CodigoArticulo = txtbCodigo.Text;
                 Articulo.Nombre = txtbNombre.Text;
 
-
                 Articulo.CodigoArticulo = txtbCodigo.Text;
-                progressBar.Value += 30;
 
                 Articulo.Nombre = txtbNombre.Text;
-                progressBar.Value += 10;
-
 
                 Articulo.Descripcion = txtbDescripcion.Text;
-                progressBar.Value += 10;
-
 
                 Articulo.Precio = decimal.Parse(txtbPrecio.Text);
-                progressBar.Value += 10;
-
 
                 Articulo.Marca = (Marca)cboxMarca.SelectedItem;
-                progressBar.Value += 10;
-
 
                 Articulo.Categoria = (Categoria)cboxCategoria.SelectedItem;
-                progressBar.Value += 10;
-
 
                 Articulo.ImagenUrl = new Imagen();
                 Articulo.ImagenUrl.Descripcion = txtbUrlImagen.Text;
-                progressBar.Value += 10;
-
-
-
 
                 if (Articulo.IdArticulo != 0)
                 {
+
                     articuloNegocio.Modificar(Articulo);
-                    if (progressBar.Value == 90)
-                        lblPorcentaje.Text = "Modificado!";
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        progressBar.Value += 10;
+                        if (progressBar.Value == 100)
+                        {
+                            progressBar.Visible = true;
+                            lblPorcentaje.Text = "Modificado!";
+                        }
+                    }
                     MessageBox.Show("Modificado correctamente!");
                 }
                 else
                 {
                                                                
                     articuloNegocio.Agregar(Articulo);            
-                    if (progressBar.Value == 90)                  
-                        lblPorcentaje.Text = "Agregado!";         
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        progressBar.Value += 10;
+                        if (progressBar.Value == 100)
+                        {
+                            progressBar.Visible = true;
+                            lblPorcentaje.Text = "Agregado!";
+                        }
+                    }
                     MessageBox.Show("Agregado correctamente!");   
   
                 }
@@ -286,74 +318,6 @@ namespace GestorArticulos
 
         }
 
-      
-
-
-        private void txtbCodigo_TextChanged(object sender, EventArgs e)
-        {
-            if (txtbCodigo.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbCodigo.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
-        }
-
-
-
-        private void txtbNombre_TextChanged(object sender, EventArgs e)
-        {
-            if (txtbNombre.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbNombre.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
-        }
-
-        private void txtbDescripcion_TextChanged(object sender, EventArgs e)
-        {
-            if (txtbDescripcion.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbDescripcion.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
-        }
-
-        private void txtbUrlImagen_TextChanged(object sender, EventArgs e)
-        {
-            if (txtbUrlImagen.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbUrlImagen.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
-        }
 
         private void txtbPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -365,22 +329,6 @@ namespace GestorArticulos
                 e.Handled = true; // Evitar que se escriba el carácter
             }
 
-        }
-
-        private void txtbPrecio_TextChanged_1(object sender, EventArgs e)
-        {
-            if (txtbPrecio.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbPrecio.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
         }
     }
 }

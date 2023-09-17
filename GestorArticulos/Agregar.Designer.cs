@@ -89,7 +89,6 @@ namespace GestorArticulos
             this.txtbCodigo.Size = new System.Drawing.Size(111, 20);
             this.txtbCodigo.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtbCodigo, "Ingrese el codigo.. ");
-            this.txtbCodigo.TextChanged += new System.EventHandler(this.txtbCodigo_TextChanged);
             // 
             // pboxImagen
             // 
@@ -175,7 +174,6 @@ namespace GestorArticulos
             this.txtbNombre.Size = new System.Drawing.Size(111, 20);
             this.txtbNombre.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtbNombre, "Ingrese el nombre del articulo..");
-            this.txtbNombre.TextChanged += new System.EventHandler(this.txtbNombre_TextChanged);
             // 
             // txtbDescripcion
             // 
@@ -184,7 +182,6 @@ namespace GestorArticulos
             this.txtbDescripcion.Size = new System.Drawing.Size(111, 20);
             this.txtbDescripcion.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtbDescripcion, "Ingrese una breve descripcion..");
-            this.txtbDescripcion.TextChanged += new System.EventHandler(this.txtbDescripcion_TextChanged);
             // 
             // txtbUrlImagen
             // 
@@ -193,7 +190,6 @@ namespace GestorArticulos
             this.txtbUrlImagen.Size = new System.Drawing.Size(111, 20);
             this.txtbUrlImagen.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtbUrlImagen, "Ingrese la url...");
-            this.txtbUrlImagen.TextChanged += new System.EventHandler(this.txtbUrlImagen_TextChanged);
             this.txtbUrlImagen.Leave += new System.EventHandler(this.txtbUrlImagen_Leave);
             // 
             // cboxCategoria
@@ -235,7 +231,6 @@ namespace GestorArticulos
             this.txtbPrecio.Size = new System.Drawing.Size(111, 20);
             this.txtbPrecio.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtbPrecio, "Ingrese el precio...");
-            this.txtbPrecio.TextChanged += new System.EventHandler(this.txtbPrecio_TextChanged_1);
             this.txtbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbPrecio_KeyPress);
             // 
             // PanelAgregar
@@ -274,7 +269,7 @@ namespace GestorArticulos
             // 
             this.progressBar.BackColor = System.Drawing.Color.Maroon;
             this.progressBar.ForeColor = System.Drawing.Color.IndianRed;
-            this.progressBar.Location = new System.Drawing.Point(448, 487);
+            this.progressBar.Location = new System.Drawing.Point(437, 487);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(124, 30);
             this.progressBar.TabIndex = 19;
@@ -283,12 +278,12 @@ namespace GestorArticulos
             // 
             this.lblPorcentaje.AutoSize = true;
             this.lblPorcentaje.BackColor = System.Drawing.Color.IndianRed;
+            this.lblPorcentaje.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPorcentaje.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblPorcentaje.Location = new System.Drawing.Point(489, 496);
+            this.lblPorcentaje.Location = new System.Drawing.Point(471, 494);
             this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(21, 13);
+            this.lblPorcentaje.Size = new System.Drawing.Size(0, 16);
             this.lblPorcentaje.TabIndex = 20;
-            this.lblPorcentaje.Text = "0%";
             // 
             // frmAgregar
             // 
