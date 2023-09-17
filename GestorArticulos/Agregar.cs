@@ -94,6 +94,33 @@ namespace GestorArticulos
             cargar();
         }
 
+        private bool buscarArticulo(string CodArticulo)
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                articulos=articuloNegocio.ListarArticulos();
+
+                foreach (Articulo item in articulos)
+                {
+                    if(item.CodigoArticulo == CodArticulo)
+                    {
+                        return true;
+                    }
+
+                }
+                return false;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
         /* private void btnAgregar_Click(object sender, EventArgs e)
          {
@@ -151,8 +178,16 @@ namespace GestorArticulos
 
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
+            if (buscarArticulo(txtbCodigo.Text))
+            {
+                MessageBox.Show("El código de Articulo ya existe, agregue otro por favor.");
+                btnAgregar.Enabled = true; // Habilitar el botón nuevamente.
+                return; // Salir del método sin guardar el artículo.
+            }
+
             try
             {
+                
                 if (Articulo == null)
                 {
                     Articulo = new Articulo();
@@ -201,10 +236,12 @@ namespace GestorArticulos
                 }
                 else
                 {
-                    articuloNegocio.Agregar(Articulo);
-                    if (progressBar.Value == 90)
-                        lblPorcentaje.Text = "Agregado!";
-                    MessageBox.Show("Agregado correctamente!");
+                                                               
+                    articuloNegocio.Agregar(Articulo);            
+                    if (progressBar.Value == 90)                  
+                        lblPorcentaje.Text = "Agregado!";         
+                    MessageBox.Show("Agregado correctamente!");   
+  
                 }
                 Close();
             }
@@ -249,21 +286,7 @@ namespace GestorArticulos
 
         }
 
-        private void txtbPrecio_Leave(object sender, EventArgs e)
-        {
-            if (txtbPrecio.Text.Length == 0)
-            {
-                progressBar.Value -= 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-            }
-            else if (txtbPrecio.Text.Length == 1)
-            {
-                progressBar.Value += 20;
-                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
-                if (progressBar.Value == 100)
-                    lblPorcentaje.Text = "Completo!";
-            }
-        }
+      
 
 
         private void txtbCodigo_TextChanged(object sender, EventArgs e)
@@ -342,6 +365,22 @@ namespace GestorArticulos
                 e.Handled = true; // Evitar que se escriba el carácter
             }
 
+        }
+
+        private void txtbPrecio_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtbPrecio.Text.Length == 0)
+            {
+                progressBar.Value -= 20;
+                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
+            }
+            else if (txtbPrecio.Text.Length == 1)
+            {
+                progressBar.Value += 20;
+                lblPorcentaje.Text = progressBar.Value.ToString() + "%";
+                if (progressBar.Value == 100)
+                    lblPorcentaje.Text = "Completo!";
+            }
         }
     }
 }

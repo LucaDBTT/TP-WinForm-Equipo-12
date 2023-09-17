@@ -48,10 +48,10 @@ namespace GestorArticulos
             this.lblFiltroEspecifico = new System.Windows.Forms.Label();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.panelFiltroRapido = new System.Windows.Forms.Panel();
-            this.lblImagen = new System.Windows.Forms.Label();
             this.ttpAgregar = new System.Windows.Forms.ToolTip(this.components);
             this.ttpModificar = new System.Windows.Forms.ToolTip(this.components);
             this.ttpEliminar = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +64,7 @@ namespace GestorArticulos
             this.dgvArticulo.BackgroundColor = System.Drawing.Color.LightCoral;
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulo.Location = new System.Drawing.Point(196, 142);
+            this.dgvArticulo.Location = new System.Drawing.Point(207, 196);
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -78,7 +78,7 @@ namespace GestorArticulos
             this.lblTitulo.BackColor = System.Drawing.Color.LightCoral;
             this.lblTitulo.Font = new System.Drawing.Font("Arial", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTitulo.Location = new System.Drawing.Point(465, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(476, 74);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(344, 36);
             this.lblTitulo.TabIndex = 1;
@@ -162,7 +162,7 @@ namespace GestorArticulos
             this.pboxImagen.BackColor = System.Drawing.Color.LightCoral;
             this.pboxImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pboxImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pboxImagen.Location = new System.Drawing.Point(836, 207);
+            this.pboxImagen.Location = new System.Drawing.Point(847, 261);
             this.pboxImagen.Name = "pboxImagen";
             this.pboxImagen.Size = new System.Drawing.Size(406, 318);
             this.pboxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +180,7 @@ namespace GestorArticulos
             this.panel1.Controls.Add(this.txtFiltro);
             this.panel1.Controls.Add(this.cboCampo);
             this.panel1.Controls.Add(this.lblFiltroEspecifico);
-            this.panel1.Location = new System.Drawing.Point(12, 87);
+            this.panel1.Location = new System.Drawing.Point(23, 141);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 438);
             this.panel1.TabIndex = 9;
@@ -246,7 +246,7 @@ namespace GestorArticulos
             this.panelBotones.Controls.Add(this.btnAgregar);
             this.panelBotones.Controls.Add(this.btnModificar);
             this.panelBotones.Controls.Add(this.btnELiminar);
-            this.panelBotones.Location = new System.Drawing.Point(836, 87);
+            this.panelBotones.Location = new System.Drawing.Point(847, 141);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(409, 113);
             this.panelBotones.TabIndex = 10;
@@ -258,22 +258,18 @@ namespace GestorArticulos
             this.panelFiltroRapido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFiltroRapido.Controls.Add(this.txtboxBuscar);
             this.panelFiltroRapido.Controls.Add(this.lblBuscar);
-            this.panelFiltroRapido.Location = new System.Drawing.Point(196, 87);
+            this.panelFiltroRapido.Location = new System.Drawing.Point(207, 141);
             this.panelFiltroRapido.Name = "panelFiltroRapido";
             this.panelFiltroRapido.Size = new System.Drawing.Size(634, 49);
             this.panelFiltroRapido.TabIndex = 11;
             // 
-            // lblImagen
+            // toolStrip1
             // 
-            this.lblImagen.AutoSize = true;
-            this.lblImagen.BackColor = System.Drawing.Color.IndianRed;
-            this.lblImagen.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImagen.ForeColor = System.Drawing.Color.White;
-            this.lblImagen.Location = new System.Drawing.Point(1195, 528);
-            this.lblImagen.Name = "lblImagen";
-            this.lblImagen.Size = new System.Drawing.Size(47, 13);
-            this.lblImagen.TabIndex = 12;
-            this.lblImagen.Text = "Imagen";
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1283, 25);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // frmCatalogo
             // 
@@ -281,8 +277,8 @@ namespace GestorArticulos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1281, 591);
-            this.Controls.Add(this.lblImagen);
+            this.ClientSize = new System.Drawing.Size(1283, 604);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelFiltroRapido);
             this.Controls.Add(this.panelBotones);
             this.Controls.Add(this.panel1);
@@ -324,10 +320,10 @@ namespace GestorArticulos
         private System.Windows.Forms.Label lbCriterio;
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Panel panelFiltroRapido;
-        private System.Windows.Forms.Label lblImagen;
         private System.Windows.Forms.ToolTip ttpAgregar;
         private System.Windows.Forms.ToolTip ttpModificar;
         private System.Windows.Forms.ToolTip ttpEliminar;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 
