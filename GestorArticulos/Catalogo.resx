@@ -121,7 +121,7 @@
   <data name="btnAgregar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAABBZJREFUeF7lmk9OFUEQxqc1MZq4M7pUVnIFXUqQC4jCBUQ5gnANI7IU9QRyAo2K
+        wwAADsMBx2+oZAAABBZJREFUeF7lmk9OFUEQxqc1MZq4M7pUVnIFXUqQC4jCBUQ5gnANI7IU9QRyAo2K
         CbgwupIDiGxJhBjRr7r6YXd1v3kzj+oeYH5JJdDVVV91Mf+bylTn/p4kqyrzu6qqOVgZUkV0bUWbkCrg
         JFixJiTEDwub1D+yIk2IRcsi9A9p0f5Y9ib4YixYFqGPBtBiCzbBF2Kxsgh9agBRrgm+CAuVRegPGkCU
         aYIvwCJlEfp+A4hhTZhntwJ+chYoi9CXDSDyNsFPzMnLIvRTDSDyNcFPyonLIvSHNYAY1oTj4SfkpGWR
@@ -147,7 +147,7 @@
   <data name="btnModificar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATr2AAE69gE6sVc6AAAEFElE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATr1AAE69QGXCHZXAAAEFElE
         QVR4Xu2bTchVRQCGP9MSoSxyYVYkgpW0cKMG+bfJdi2KJOh/If2IIrgTwYUbI2hnLcSFmNEusFXgwiAX
         EkGEEZVgP4KaBSVpGWnp84gXhvnOuffce+acM/frvvAgfJ6Zb973zsyZb2bu1EQTzQjNg8dgF+yD/fAu
         vAZL4RaYkZoFGv8QfodrEf/CD/AmLIIZJc0/D6chNh7zHxyFR2BGSPOvwK9QZLiMIzD2PWFU8z12w1Ca
@@ -174,7 +174,7 @@
   <data name="btnELiminar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAAuAAAALgHcxHvOAAAEF0lE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAAtAAAALQFxfVqjAAAEF0lE
         QVR4Xu3bW+gNWwDH8b+DE07IJfc8KEIUJUluhRSeKDkvLomSa3J7kBd5kZBcklJSFI4HHsi9o+QWiSK3
         XFJ0kFsux/X7q/+q1doz+z+z98zsNf3nV5+XbfbsmZ+993/WmrXrIqY9duM9fmVMr7kPXVGzLMZ3BB1g
         Fn7gIHqgJtmFoAPL2kn0QebR2z/ogGrhIgYh0wQV8BGvEvQB7muEuY5hyCxBBazHAOh/o1raz2ros26/
