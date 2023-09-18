@@ -85,6 +85,30 @@ namespace GestorArticulos
 
             }
         }
+        private bool buscarModificado(string CodArticulo, int Id)
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+
+            try
+            {
+                articulos = articuloNegocio.ListarArticulos();
+
+                foreach (Articulo item in articulos)
+                {
+                    if (item.CodigoArticulo == CodArticulo && item.IdArticulo != Id)
+                    {
+                        return true; // Si encuentra un artículo con el mismo código y diferente IdArticulo, devuelve true.
+                    }
+                }
+
+                return false; // Si no encuentra ningún artículo con el mismo código o el mismo IdArticulo, devuelve false.
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         private void frmAgregar_Load(object sender, EventArgs e)
@@ -168,6 +192,10 @@ namespace GestorArticulos
             {
                 return true;
             }
+            if (string.IsNullOrEmpty(txtbNombre.Text))
+            {
+                return true;
+            }
             if (string.IsNullOrEmpty(txtbDescripcion.Text))
             {
                 return true;
@@ -211,12 +239,7 @@ namespace GestorArticulos
                 return; // Salir del método sin guardar el artículo.
             }
 
-            if (buscarArticulo(txtbCodigo.Text))
-            {
-                MessageBox.Show("El código de Articulo ya existe, agregue otro por favor.");
-                btnAgregar.Enabled = true; // Habilitar el botón nuevamente.
-                return; // Salir del método sin guardar el artículo.
-            }
+          
 
             try
             {
@@ -246,7 +269,12 @@ namespace GestorArticulos
 
                 if (Articulo.IdArticulo != 0)
                 {
-
+                    if (buscarModificado(txtbCodigo.Text, Articulo.IdArticulo))
+                    {
+                        MessageBox.Show("El código de Articulo ya existe");
+                        btnAgregar.Enabled = true; // Habilitar el botón nuevamente.
+                        return; // Salir del método sin guardar el artículo.
+                    }
                     articuloNegocio.Modificar(Articulo);
                     for (int i = 1; i <= 10; i++)
                     {
@@ -261,7 +289,13 @@ namespace GestorArticulos
                 }
                 else
                 {
-                                                               
+                    if (buscarArticulo(txtbCodigo.Text))
+                    {
+                        MessageBox.Show("El código de Articulo ya existe, agregue otro por favor.");
+                        btnAgregar.Enabled = true; // Habilitar el botón nuevamente.
+                        return; // Salir del método sin guardar el artículo.
+                    }
+
                     articuloNegocio.Agregar(Articulo);            
                     for (int i = 1; i <= 10; i++)
                     {

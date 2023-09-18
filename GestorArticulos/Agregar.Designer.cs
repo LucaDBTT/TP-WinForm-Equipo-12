@@ -269,7 +269,7 @@ namespace GestorArticulos
             // 
             this.progressBar.BackColor = System.Drawing.Color.Maroon;
             this.progressBar.ForeColor = System.Drawing.Color.IndianRed;
-            this.progressBar.Location = new System.Drawing.Point(437, 487);
+            this.progressBar.Location = new System.Drawing.Point(444, 487);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(124, 30);
             this.progressBar.TabIndex = 19;
@@ -296,8 +296,12 @@ namespace GestorArticulos
             this.Controls.Add(this.panelBotones);
             this.Controls.Add(this.PanelAgregar);
             this.Controls.Add(this.pboxImagen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxImagen)).EndInit();
